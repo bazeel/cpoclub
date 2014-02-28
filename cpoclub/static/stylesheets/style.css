@@ -3281,3 +3281,16 @@ input.wpcf7-not-valid:focus {
 body {
   background: none;
 }
+
+.registration-form {
+    margin: 10px 0 0 10px !important;
+}
+.profile-img {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #dfdfe4;
+}
+
+.profile-posts  .post-body {
+    margin-left: 0px;
+    padding-bottom: 0px;
+}
