@@ -1,0 +1,5 @@
+
+Регистрационные данные:
+
+Логин: {{ object.username }}
+Пароль: {{ object.password }}

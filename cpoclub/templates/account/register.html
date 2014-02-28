@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Registration" %}{% endblock %}
+
+{% block content %}
+  <div class="name_page">
+       <ul>
+          <li><a href="/">{% trans "Index page" %}</a></li>
+          <li>/</li>
+          <li><a href="#">{% trans "Registration" %}</a></li>
+           <li>/</li>
+       </ul>
+    </div> 
+                  
+                  
+                  <h3 class="center">{% trans "Registration" %}</h3>
+            {% if success or user.is_authenticated %}
+                <p class="success">{% trans "Registration was successful. Username and password are sent to your Email" %}</p>
+            {% else %}
+
+                {% if user_form.errors or user_profile_form.errors  %}<p class="registr_errors">{% trans "Correct the error" %}</p>{% endif %}
+                <form method="POST" action="{% url accounts_register language=LANGUAGE_CODE %}">{% csrf_token %}
+                   <table class="big_form">
+                   <tr {% if user_form.errors.first_name %}class="error"{% endif %}>
+                        <td style="width:130px;"><label>{% trans "Name" %} <ins>*</ins></label></td>
+                        <td  style="width:261px;" class="input">{{ user_form.first_name }}</td>
+                        <td><b>{% trans "your name" %}</b></td>
+                   </tr>
+                   <tr {% if user_form.errors.username %}class="error"{% endif %}>
+                        <td style="width:130px;"><label>{% trans "Username" %} <ins>*</ins></label></td>
+                        <td  style="width:261px;" class="input">{{ user_form.username }}</td>
+                        <td><b>{% trans "for example" %}, Yrgan</b></td>
+                   </tr>
+                   <tr {% if user_form.errors.email %}class="error"{% endif %}>
+                        <td style="width:130px;"><label>Email <ins>*</ins></label></td>
+                        <td  style="width:261px;" class="input">{{ user_form.email }}</td>
+                        <td><b>{% trans "for example" %}, Yrgan@example.ru</b></td>
+                   </tr>
+                   <tr {% if user_form.errors.password %}class="error"{% endif %}>
+                        <td style="width:130px;"><label>Пароль <ins>*</ins></label></td>
+                        <td  style="width:261px;" class="input">{{ user_form.password }}</td>
+                        <td><b>{% trans "Letters, numbers and punctuation" %} @/./+/-/_</b></td>
+                   </tr>
+                   <tr {% if user_profile_form.errors.gender %}class="error"{% endif %}>
+                        <td><label>{% trans "Sex" %} <ins>*</ins></label></td>
+                        <td>
+
+                            {{user_profile_form.gender}}
+ 
+                        </td>
+                        <td></td>
+                   </tr>
+                   <tr {% if user_profile_form.errors.country %}class="error"{% endif %}>
+                        <td><label>{% trans "Country" %} <ins>*</ins></label></td>
+                        <td>
+                            {{user_profile_form.country}}
+                        </td>
+                        <td></td>
+                   </tr>
+                    <tr {% if user_form.errors.captcha %}class="error"{% endif %}>
+                        <td colspan="2"><span>{% trans "Enter word from picture" %} <ins>*</ins></span>
+                            {{ user_form.captcha }}
+                        </td>
+                        <td></td>
+                   </tr>
+                   <tr>
+                        <td colspan="2"><label><ins>*</ins>  - {% trans "Required fields" %}</label></td>
+                        <td></td>
+                   </tr>
+                   <tr>
+                        <td></td>
+                        <td><input name="" class="buton3" value="{% trans "Sign up" %}" type="submit" /></td>
+                        <td></td>
+                   </tr>
+                   </table>
+                </form>
+
+            {% endif %}
+
+{% endblock %}
