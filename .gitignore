@@ -3,3 +3,4 @@ lib/
 local
 include/
 *.pyc
+ignored_settings.py

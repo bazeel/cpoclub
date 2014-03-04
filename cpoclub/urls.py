@@ -1,7 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
 
 admin.autodiscover()
 
@@ -12,7 +11,6 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^account/', include('account.urls')),
-
 
     #url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     #url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
@@ -25,5 +23,4 @@ urlpatterns = patterns('',
         'django.contrib.auth.views.password_reset_confirm',
         name='password_reset_confirm'),
     url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
-
 )

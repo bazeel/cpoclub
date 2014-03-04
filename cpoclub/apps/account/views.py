@@ -10,8 +10,7 @@ from django.conf import settings
 from django.template.loader import render_to_string
 #from django.contrib.sites.models import Site
 
-#from .forms import UserForm, UserProfileForm
-from .models import UserProfile
+from .forms import UserForm
 
 
 def login_view(request):
@@ -48,9 +47,19 @@ def logout_view(request):
 
 
 def register(request):
-    return render(request, 'account/register.html', {})
-    '''
     user_form = UserForm(prefix='user_form')
+    success = False
+
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+
+        print vars(user_form)
+
+    return render(request, 'account/register.html', {
+            'user_form': user_form,
+        })
+    '''
+    user_form = UserForm(prefix='user_form')x
     user_profile_form = UserProfileForm(prefix='user_profile_form')
     success = False
     if request.method == 'POST':

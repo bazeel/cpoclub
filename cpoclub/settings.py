@@ -68,6 +68,8 @@ DATABASES = {
     }
 }
 
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -91,3 +93,5 @@ TEMPLATE_DIRS = (
 
 APPS_ROOT = os.path.join(BASE_DIR, 'apps')
 sys.path.append(APPS_ROOT)
+
+from ignored_settings import *

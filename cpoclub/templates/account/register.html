@@ -1,81 +1,75 @@
 {% extends "base.html" %}
-{% load i18n %}
-
-{% block title %}{% trans "Registration" %}{% endblock %}
 
 {% block content %}
-  <div class="name_page">
-       <ul>
-          <li><a href="/">{% trans "Index page" %}</a></li>
-          <li>/</li>
-          <li><a href="#">{% trans "Registration" %}</a></li>
-           <li>/</li>
-       </ul>
-    </div> 
-                  
-                  
-                  <h3 class="center">{% trans "Registration" %}</h3>
-            {% if success or user.is_authenticated %}
-                <p class="success">{% trans "Registration was successful. Username and password are sent to your Email" %}</p>
-            {% else %}
 
-                {% if user_form.errors or user_profile_form.errors  %}<p class="registr_errors">{% trans "Correct the error" %}</p>{% endif %}
-                <form method="POST" action="{% url accounts_register language=LANGUAGE_CODE %}">{% csrf_token %}
-                   <table class="big_form">
-                   <tr {% if user_form.errors.first_name %}class="error"{% endif %}>
-                        <td style="width:130px;"><label>{% trans "Name" %} <ins>*</ins></label></td>
-                        <td  style="width:261px;" class="input">{{ user_form.first_name }}</td>
-                        <td><b>{% trans "your name" %}</b></td>
-                   </tr>
-                   <tr {% if user_form.errors.username %}class="error"{% endif %}>
-                        <td style="width:130px;"><label>{% trans "Username" %} <ins>*</ins></label></td>
-                        <td  style="width:261px;" class="input">{{ user_form.username }}</td>
-                        <td><b>{% trans "for example" %}, Yrgan</b></td>
-                   </tr>
-                   <tr {% if user_form.errors.email %}class="error"{% endif %}>
-                        <td style="width:130px;"><label>Email <ins>*</ins></label></td>
-                        <td  style="width:261px;" class="input">{{ user_form.email }}</td>
-                        <td><b>{% trans "for example" %}, Yrgan@example.ru</b></td>
-                   </tr>
-                   <tr {% if user_form.errors.password %}class="error"{% endif %}>
-                        <td style="width:130px;"><label>Пароль <ins>*</ins></label></td>
-                        <td  style="width:261px;" class="input">{{ user_form.password }}</td>
-                        <td><b>{% trans "Letters, numbers and punctuation" %} @/./+/-/_</b></td>
-                   </tr>
-                   <tr {% if user_profile_form.errors.gender %}class="error"{% endif %}>
-                        <td><label>{% trans "Sex" %} <ins>*</ins></label></td>
-                        <td>
+<section class="section section-padded section-alt ">
+                <div class="container-fluid"><div class="section-header"><h1><span class="light">регистрация</span></h1></div>
+                
+                    <div class="row-fluid margin-top">
+                        <div class="span4">
+                            <span class="lead margin-top">
+                                <p>Рыботекст, преимущества для зарегистрированных юзеров. Как получить инвайт. Рыботекст, преимущества для зарегистрированных юзеров. Как получить инвайт.</p>
+                            </span>
+                            <!-- skills section -->
+                                                    <ul class="lead icons icons-small">
+                                                            <li><i class="icon-ok"></i>Brochure design</li>
+                                                            <li><i class="icon-ok"></i>Mobile app</li>
+                                                            <li><i class="icon-ok"></i>Web design</li>
+                                                    </ul>
+                                            </div>
+                        <div class="span8">
+                            <div class="post-media">
+                                            
+                                    <div class="flex-viewport" style="overflow: hidden; position: relative; height: 420px;">
+                                    
+                                        <div class="contact-form span12 registration-form" id="contactForm" novalidate="">
+                                            <div class="controls controls-row">
+                                                <div class="control-group span6">
+                                                    {{ user_form.username }}
+                                                    <!--input type="text" name="your-name" value="" size="40" class="span12" placeholder="Имя пользователя"-->
+                                                </div>
+                                            </div>
 
-                            {{user_profile_form.gender}}
- 
-                        </td>
-                        <td></td>
-                   </tr>
-                   <tr {% if user_profile_form.errors.country %}class="error"{% endif %}>
-                        <td><label>{% trans "Country" %} <ins>*</ins></label></td>
-                        <td>
-                            {{user_profile_form.country}}
-                        </td>
-                        <td></td>
-                   </tr>
-                    <tr {% if user_form.errors.captcha %}class="error"{% endif %}>
-                        <td colspan="2"><span>{% trans "Enter word from picture" %} <ins>*</ins></span>
-                            {{ user_form.captcha }}
-                        </td>
-                        <td></td>
-                   </tr>
-                   <tr>
-                        <td colspan="2"><label><ins>*</ins>  - {% trans "Required fields" %}</label></td>
-                        <td></td>
-                   </tr>
-                   <tr>
-                        <td></td>
-                        <td><input name="" class="buton3" value="{% trans "Sign up" %}" type="submit" /></td>
-                        <td></td>
-                   </tr>
-                   </table>
-                </form>
-
-            {% endif %}
+                                            <div class="controls controls-row">
+                                                <div class="control-group span6 error">
+                                                   <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email span12" aria-required="true" aria-invalid="false" placeholder="E-mail"></span>
+                                                   
+                                                    <div class="tooltip fade right in" style="top: 57px; left: 373px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
+                                                </div>
+                                            <p></p></div>
+                                            
+                                            <div class="controls controls-row">
+                                                <div class="control-group span6">
+                                                   <span class="wpcf7-form-control-wrap your-email"><input type="text" name="invite" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email span12" aria-required="true" aria-invalid="false" placeholder="Номер члена клуба"></span>
+                                                </div>
+                                            <p></p></div>
+                                            
+                                            <div class="controls controls-row">
+                                                <div class="control-group span6">
+                                                   <span class="wpcf7-form-control-wrap your-email"><input type="text" name="invite" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email span12" aria-required="true" aria-invalid="false" placeholder="Имя"></span>
+                                                </div>
+                                            <p></p></div>
+                                            
+                                            <div class="controls controls-row">
+                                                <div class="control-group span6">
+                                                   <span class="wpcf7-form-control-wrap your-email"><input type="text" name="invite" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email span12" aria-required="true" aria-invalid="false" placeholder="Фамилия"></span>
+                                                </div>
+                                            <p></p></div>
+                                            
+                                            <div class="controls controls-row">
+                                                <div class="control-group span12">
+                                                    <input type="submit" value="Зарегистрироваться" class="wpcf7-form-control wpcf7-submit btn btn-primary"><img class="ajax-loader" src="/static/plugins/contact-form-7/images/ajax-loader.gif" alt="Регистрация..." style="visibility: hidden;">
+                                                </div>
+                                            <p></p></div>
+                                        </div>
+                                        
+                                    </div>
+                                            
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                </section>
 
 {% endblock %}
