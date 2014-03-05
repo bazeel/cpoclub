@@ -16,7 +16,12 @@ class UserForm(forms.ModelForm):
             self.fields['first_name'].required = True
             self.fields['last_name'].required = True
             self.fields['email'].required = True
-            self.fields['username'].widget = forms.TextInput(attrs={'placeholder': _('User name'), 'class': ''})
+            self.fields['username'].widget = forms.TextInput(attrs={'placeholder': _('Username'), 'class': 'span12'})
+            self.fields['email'].widget = forms.TextInput(attrs={'placeholder': 'E-mail', 'class': 'span12'})
+            self.fields['invitation_code'].widget = forms.TextInput(attrs={'placeholder': _('Member number'), 
+                'class': 'span12'}) 
+            self.fields['first_name'].widget = forms.TextInput(attrs={'placeholder': _('First name'), 'class': 'span12'})
+            self.fields['last_name'].widget = forms.TextInput(attrs={'placeholder': _('Last name'), 'class': 'span12'})
 
     '''
     def clean(self):

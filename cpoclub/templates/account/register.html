@@ -18,54 +18,59 @@
                                                     </ul>
                                             </div>
                         <div class="span8">
-                            <div class="post-media">
-                                            
-                                    <div class="flex-viewport" style="overflow: hidden; position: relative; height: 420px;">
-                                    
-                                        <div class="contact-form span12 registration-form" id="contactForm" novalidate="">
+
+                                        <div class="span6">
+                                            <div class="alert alert-danger" style="margin-left:10px;">
+                                                <button class="close" data-dismiss="alert" type="button">×</button>
+                                                <strong>Danger!</strong>
+                                                Lorem ipsum dolor sit amet.
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="contact-form span12 registration-form" style="position:relative">
+
+
+
                                             <div class="controls controls-row">
-                                                <div class="control-group span6">
+                                                <div class="control-group span6 error">
                                                     {{ user_form.username }}
-                                                    <!--input type="text" name="your-name" value="" size="40" class="span12" placeholder="Имя пользователя"-->
+                                                    <div class="tooltip fade right in" style="top: 2px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
                                                 </div>
                                             </div>
 
                                             <div class="controls controls-row">
                                                 <div class="control-group span6 error">
-                                                   <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email span12" aria-required="true" aria-invalid="false" placeholder="E-mail"></span>
-                                                   
-                                                    <div class="tooltip fade right in" style="top: 57px; left: 373px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
+                                                    {{ user_form.email }}
+                                                    <div class="tooltip fade right in" style="top: 48px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
                                                 </div>
-                                            <p></p></div>
+                                            </div>
                                             
                                             <div class="controls controls-row">
-                                                <div class="control-group span6">
-                                                   <span class="wpcf7-form-control-wrap your-email"><input type="text" name="invite" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email span12" aria-required="true" aria-invalid="false" placeholder="Номер члена клуба"></span>
+                                                <div class="control-group span6 error">
+                                                    {{ user_form.invitation_code }}
+                                                    <div class="tooltip fade right in" style="top: 93px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
                                                 </div>
-                                            <p></p></div>
+                                            </div>
                                             
                                             <div class="controls controls-row">
-                                                <div class="control-group span6">
-                                                   <span class="wpcf7-form-control-wrap your-email"><input type="text" name="invite" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email span12" aria-required="true" aria-invalid="false" placeholder="Имя"></span>
+                                                <div class="control-group span6 error">
+                                                    {{ user_form.first_name }}
+                                                    <div class="tooltip fade right in" style="top: 139px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
                                                 </div>
-                                            <p></p></div>
-                                            
+                                            </div>
+
                                             <div class="controls controls-row">
-                                                <div class="control-group span6">
-                                                   <span class="wpcf7-form-control-wrap your-email"><input type="text" name="invite" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email span12" aria-required="true" aria-invalid="false" placeholder="Фамилия"></span>
+                                                <div class="control-group span6 error">
+                                                    {{ user_form.last_name }}
+                                                    <div class="tooltip fade right in" style="top: 185px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
                                                 </div>
-                                            <p></p></div>
-                                            
-                                            <div class="controls controls-row">
-                                                <div class="control-group span12">
-                                                    <input type="submit" value="Зарегистрироваться" class="wpcf7-form-control wpcf7-submit btn btn-primary"><img class="ajax-loader" src="/static/plugins/contact-form-7/images/ajax-loader.gif" alt="Регистрация..." style="visibility: hidden;">
-                                                </div>
-                                            <p></p></div>
+                                            </div>
+
                                         </div>
-                                        
-                                    </div>
-                                            
-                            </div>
+
+
                         </div>
                     </div>
                 
