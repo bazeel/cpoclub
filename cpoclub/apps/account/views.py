@@ -52,11 +52,19 @@ def register(request):
 
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
-
-        print vars(user_form)
+        if user_form.is_valid():
+            user_data = user_form.save(commit=False)
+            print vars(user_form)
+            try:
+                user = User.objects.create_user(user_data.username, user_data.email, user_data.password)
+            except Exception:
+                pass
+            else:
+                pass
 
     return render(request, 'account/register.html', {
             'user_form': user_form,
+            'success': success,
         })
     '''
     user_form = UserForm(prefix='user_form')x

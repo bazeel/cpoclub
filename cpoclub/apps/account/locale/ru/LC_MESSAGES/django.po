@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-04 17:41+0400\n"
+"POT-Creation-Date: 2014-03-06 18:02+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,14 +27,55 @@ msgstr ""
 msgid "invitation code"
 msgstr "код приглашения"
 
-#: forms.py:19
-msgid "User name"
+#: forms.py:20
+#, fuzzy
+msgid "Username"
 msgstr "Имя пользователя"
+
+#: forms.py:21
+msgid "Password"
+msgstr ""
+
+#: forms.py:22
+msgid "Confirm password"
+msgstr "Подтверждение пароля"
+
+#: forms.py:24
+msgid "Invitation code"
+msgstr "Код приглашения"
+
+#: forms.py:26
+msgid "Firstname"
+msgstr "Имя"
+
+#: forms.py:27
+msgid "Lastname"
+msgstr "Фамилия"
+
+#: forms.py:39
+msgid "A user with that username already exists."
+msgstr ""
+
+#: forms.py:51
+msgid "The two password fields didn't match."
+msgstr ""
 
 #: models.py:15
 msgid "invitation codes"
 msgstr "Коды приглашения"
 
-#: models.py:23 models.py:24
+#: models.py:21
+msgid "avatar"
+msgstr "Фото"
+
+#: models.py:22
+msgid "organization"
+msgstr "организация"
+
+#: models.py:23
+msgid "post"
+msgstr "должность"
+
+#: models.py:26 models.py:27
 msgid "user profile"
 msgstr "Профиль пользователя"

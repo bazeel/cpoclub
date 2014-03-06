@@ -3283,8 +3283,10 @@ body {
 }
 
 .registration-form {
-    margin: 10px 0 0 10px !important;
+    margin-left: 10px !important;
+    position: relative;
 }
+
 .profile-img {
     padding-bottom: 25px;
     border-bottom: 1px solid #dfdfe4;

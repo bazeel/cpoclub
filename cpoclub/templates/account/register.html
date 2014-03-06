@@ -3,78 +3,97 @@
 {% block content %}
 
 <section class="section section-padded section-alt ">
-                <div class="container-fluid"><div class="section-header"><h1><span class="light">регистрация</span></h1></div>
-                
-                    <div class="row-fluid margin-top">
-                        <div class="span4">
-                            <span class="lead margin-top">
-                                <p>Рыботекст, преимущества для зарегистрированных юзеров. Как получить инвайт. Рыботекст, преимущества для зарегистрированных юзеров. Как получить инвайт.</p>
-                            </span>
-                            <!-- skills section -->
-                                                    <ul class="lead icons icons-small">
-                                                            <li><i class="icon-ok"></i>Brochure design</li>
-                                                            <li><i class="icon-ok"></i>Mobile app</li>
-                                                            <li><i class="icon-ok"></i>Web design</li>
-                                                    </ul>
-                                            </div>
-                        <div class="span8">
+    <div class="container-fluid"><div class="section-header"><h1><span class="light">регистрация</span></h1></div>
 
-                                        <div class="span6">
-                                            <div class="alert alert-danger" style="margin-left:10px;">
-                                                <button class="close" data-dismiss="alert" type="button">×</button>
-                                                <strong>Danger!</strong>
-                                                Lorem ipsum dolor sit amet.
-                                            </div>
-                                        </div>
+        <div class="row-fluid margin-top">
+            <div class="span4">
+                <span class="lead margin-top">
+                    <p>Рыботекст, преимущества для зарегистрированных юзеров. Как получить инвайт. Рыботекст, преимущества для зарегистрированных юзеров. Как получить инвайт.</p>
+                </span>
 
+                <ul class="lead icons icons-small">
+                        <li><i class="icon-ok"></i>Brochure design</li>
+                        <li><i class="icon-ok"></i>Mobile app</li>
+                        <li><i class="icon-ok"></i>Web design</li>
+                </ul>
+            </div>
+            <div class="span8">
 
+                <div class="row-fluid">
 
-                                        <div class="contact-form span12 registration-form" style="position:relative">
-
-
-
-                                            <div class="controls controls-row">
-                                                <div class="control-group span6 error">
-                                                    {{ user_form.username }}
-                                                    <div class="tooltip fade right in" style="top: 2px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="controls controls-row">
-                                                <div class="control-group span6 error">
-                                                    {{ user_form.email }}
-                                                    <div class="tooltip fade right in" style="top: 48px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="controls controls-row">
-                                                <div class="control-group span6 error">
-                                                    {{ user_form.invitation_code }}
-                                                    <div class="tooltip fade right in" style="top: 93px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="controls controls-row">
-                                                <div class="control-group span6 error">
-                                                    {{ user_form.first_name }}
-                                                    <div class="tooltip fade right in" style="top: 139px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="controls controls-row">
-                                                <div class="control-group span6 error">
-                                                    {{ user_form.last_name }}
-                                                    <div class="tooltip fade right in" style="top: 185px; left: 297px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
+                    {% if success%}
+                        <div class="alert alert-success" style="margin-left:10px;">
+                            <button class="close" data-dismiss="alert" type="button">×</button>
+                            <strong>Поздравляем!</strong>
+                            Вы успешно зарегистрировались!
                         </div>
-                    </div>
-                
+                    {% else %}
+                        {% for field in form %}
+                            <div class="alert alert-danger" style="margin-left:10px;">
+                                <button class="close" data-dismiss="alert" type="button">×</button>
+                                <strong>Ошибка!</strong>
+                                {{ field.errors }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
-                </section>
+
+                <div class="contact-form span12 registration-form">
+                    <form action="" method="post"> {% csrf_token %}
+                        <div class="controls controls-row">
+                            <div class="control-group span6 {% if user_form.errors.username %}error{% endif %}">
+                                {{ user_form.username }}
+                                <!--div class="tooltip fade right in" style="top: 2px; left: 282px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Обязательное поле</div></div-->
+                            </div>
+                        <p></p></div>
+
+                        <div class="controls controls-row">
+                            <div class="control-group span6 {% if user_form.errors.password %}error{% endif %}">
+                                {{ user_form.password }}
+                            </div>
+                        <p></p></div>
+
+                        <div class="controls controls-row">
+                            <div class="control-group span6 {% if user_form.errors.passwordconf %}error{% endif %}">
+                                {{ user_form.passwordconf }}
+                            </div>
+                        <p></p></div>
+
+                        <div class="controls controls-row">
+                            <div class="control-group span6 {% if user_form.errors.email %}error{% endif %}">
+                                {{ user_form.email }}
+                            </div>
+                        <p></p></div>
+
+                        <div class="controls controls-row">
+                            <div class="control-group span6 {% if user_form.errors.invitation_code %}error{% endif %}">
+                                {{ user_form.invitation_code }}
+                            </div>
+                        <p></p></div>
+
+                        <div class="controls controls-row">
+                            <div class="control-group span6 {% if user_form.errors.first_name %}error{% endif %}">
+                                {{ user_form.first_name }}
+                            </div>
+                        <p></p></div>
+
+                        <div class="controls controls-row">
+                            <div class="control-group span6 {% if user_form.errors.last_name %}error{% endif %}">
+                                {{ user_form.last_name }}
+                            </div>
+                        <p></p></div>
+
+                        <div class="controls controls-row">
+                            <div class="control-group span12">
+                                <input type="submit" value="Зарегистрироваться" class="wpcf7-form-control wpcf7-submit btn btn-primary">
+                            </div>
+                        <p></p></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 {% endblock %}
