@@ -32,9 +32,9 @@
                             <div class="alert alert-danger" style="margin-left:10px;">
                                 <!--button class="close" data-dismiss="alert" type="button">×</button-->
                                 <strong>Ошибка!</strong>
-                                Проверьте правильность заполнения полей.
+                                Проверьте правильность заполнения полей:<br>
                                 {% for key,value in user_form.errors.items %}
-                                    {% if key == 'username' %}<br><strong>{% trans 'Username' %}</strong>{% endif %}
+                                    {% if key == 'username' %}<strong>{% trans 'Username' %}</strong>{% endif %}
                                     {% if key == 'password' %}<strong>{% trans 'Password' %}</strong>{% endif %}
                                     {% if key == 'passwordconf' %}<strong>{% trans 'Confirm password' %}</strong>{% endif %}
                                     {% if key == 'email' %}<strong>E-mail</strong>{% endif %}
@@ -43,6 +43,12 @@
                                     {% if key == 'last_name' %}<strong>{% trans 'Lastname' %}</strong>{% endif %}
                                     {{ value }}
                                 {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="alert alert-danger" style="margin-left:10px;">
+                                <!--button class="close" data-dismiss="alert" type="button">×</button-->
+                                <strong>Ошибка!</strong>
+                                Что-то пошло не так. Обратитесь к администратору.
                             </div>
                         {% endif %}
                     {% endif %}
