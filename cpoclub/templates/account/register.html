@@ -1,7 +1,7 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
-
 <section class="section section-padded section-alt ">
     <div class="container-fluid"><div class="section-header"><h1><span class="light">регистрация</span></h1></div>
 
@@ -28,13 +28,23 @@
                             Вы успешно зарегистрировались!
                         </div>
                     {% else %}
-                        {% for field in form %}
+                        {% if user_form.errors %}
                             <div class="alert alert-danger" style="margin-left:10px;">
-                                <button class="close" data-dismiss="alert" type="button">×</button>
+                                <!--button class="close" data-dismiss="alert" type="button">×</button-->
                                 <strong>Ошибка!</strong>
-                                {{ field.errors }}
+                                Проверьте правильность заполнения полей.
+                                {% for key,value in user_form.errors.items %}
+                                    {% if key == 'username' %}<br><strong>{% trans 'Username' %}</strong>{% endif %}
+                                    {% if key == 'password' %}<strong>{% trans 'Password' %}</strong>{% endif %}
+                                    {% if key == 'passwordconf' %}<strong>{% trans 'Confirm password' %}</strong>{% endif %}
+                                    {% if key == 'email' %}<strong>E-mail</strong>{% endif %}
+                                    {% if key == 'invitation_code' %}<strong>{% trans 'Invitation code' %}</strong>{% endif %}
+                                    {% if key == 'first_name' %}<strong>{% trans 'Firstname' %}</strong>{% endif %}
+                                    {% if key == 'last_name' %}<strong>{% trans 'Lastname' %}</strong>{% endif %}
+                                    {{ value }}
+                                {% endfor %}
                             </div>
-                        {% endfor %}
+                        {% endif %}
                     {% endif %}
                 </div>
 
