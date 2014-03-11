@@ -1,7 +1,17 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import UserProfile, InvitationCode
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.forms import AuthenticationForm
+from .models import UserProfile, InvitationCode
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+
+    def __init__(self, *args, **kwargs):
+        super(CustomAuthenticationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget = forms.TextInput(attrs={'placeholder':_('Username'), 'class':'span12'})
+        self.fields['password'].widget = forms.TextInput(attrs={'placeholder':_('Password'), 'class':'span12', 
+            'type':'password'})
 
 
 class UserForm(forms.ModelForm):

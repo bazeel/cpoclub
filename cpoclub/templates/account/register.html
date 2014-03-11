@@ -44,18 +44,12 @@
                                     {{ value }}
                                 {% endfor %}
                             </div>
-                        {% else %}
-                            <div class="alert alert-danger" style="margin-left:10px;">
-                                <!--button class="close" data-dismiss="alert" type="button">×</button-->
-                                <strong>Ошибка!</strong>
-                                Что-то пошло не так. Обратитесь к администратору.
-                            </div>
                         {% endif %}
                     {% endif %}
                 </div>
 
                 <div class="contact-form span12 registration-form">
-                    <form action="" method="post"> {% csrf_token %}
+                    <form action="{% url 'account_register' %}" method="post"> {% csrf_token %}
                         <div class="controls controls-row">
                             <div class="control-group span6 {% if user_form.errors.username %}error{% endif %}">
                                 {{ user_form.username }}
@@ -101,7 +95,8 @@
 
                         <div class="controls controls-row">
                             <div class="control-group span12">
-                                <input type="submit" value="Зарегистрироваться" class="wpcf7-form-control wpcf7-submit btn btn-primary">
+                                <input type="submit" value="Зарегистрироваться" class="btn btn-primary">
+                                <a class="btn btn-link" href="{% url 'account_login' %}">Вход</a>
                             </div>
                         <p></p></div>
                     </form>

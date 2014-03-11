@@ -1,5 +1,5 @@
 from django.template import RequestContext
-from django.contrib.auth.forms import AuthenticationForm
+#from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import *
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render, render_to_response
@@ -10,36 +10,34 @@ from django.conf import settings
 from django.template.loader import render_to_string
 #from django.contrib.sites.models import Site
 
-from .forms import UserForm
+from .forms import UserForm, CustomAuthenticationForm
 from .models import InvitationCode, UserProfile
 
 
 def login_view(request):
-
-    entered = False
+    u = request.user
+    if u.is_authenticated():
+        return HttpResponseRedirect(reverse('index'))
     disabled_account = False
     invalid_login = False
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+        form = CustomAuthenticationForm(data=request.POST)
         if form.is_valid():
             d = form.cleaned_data
             user = authenticate(username=d['username'], password=d['password'])
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    entered = True
+                    return HttpResponseRedirect(reverse('index'))
                 else:
                     disabled_account = True # Return a 'disabled account' error message
             else:
                 invalid_login = True # Return an 'invalid login' error message.
     else:
-        form = AuthenticationForm()
+        form = CustomAuthenticationForm()
 
-    return render(request, 'account/login_form_ajax.html', {
-        'form': form,
-        'entered': entered,
-        'disabled_account': disabled_account,
-        'invalid_login': invalid_login})
+    return render(request, 'account/login.html', {
+        'form': form})
 
 
 def logout_view(request):
@@ -48,9 +46,11 @@ def logout_view(request):
 
 
 def register(request):
-    user_form = UserForm(prefix='user_form')
+    u = request.user
+    if u.is_authenticated():
+        return HttpResponseRedirect(reverse('index'))
+    user_form = UserForm()
     success = False
-
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():
@@ -71,9 +71,10 @@ def register(request):
                 user.last_name = user_data['last_name']
                 user.save()
                 success = True
+                user_form = UserForm()
                 # TODO: send mail to user
 
     return render(request, 'account/register.html', {
-            'user_form': user_form,
-            'success': success,
-        })
+        'user_form': user_form,
+        'success': success,
+    })
