@@ -1,17 +1,14 @@
-"""
-Django settings for cpoclub project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import sys
+
+import django.conf.global_settings as DEFAULT_SETTINGS
+
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'core.context_processors.user',
+)
+
 BASE_DIR = os.path.dirname(__file__)
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -39,6 +36,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
 
     'account',
+    'core'
 )
 
 MIDDLEWARE_CLASSES = (

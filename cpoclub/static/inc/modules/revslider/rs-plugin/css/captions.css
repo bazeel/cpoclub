@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100,400,900);
+@import url(http://fonts.googleapis.com/css?family=Roboto:100italic,100,300italic,300,400italic,400,500italic,500,700italic,700,900italic,900&subset=cyrillic);
 
 
 .tp-caption.big_white{
@@ -8,7 +8,7 @@
 	font-weight: 900; 
 	font-size: 36px; 
 	line-height: 36px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	padding: 0px 4px; 
 	padding-top: 1px;
 	margin: 0px; 
@@ -26,7 +26,7 @@
 	font-weight: 400; 
 	font-size: 24px; 
 	line-height: 24px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	padding: 0px 4px; 
 	padding-top: 1px;
 	margin: 0px; 
@@ -44,7 +44,7 @@
 	font-weight: 900; 
 	font-size: 36px; 
 	line-height: 36px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	padding: 0px 4px; 
 	margin: 0px; 
 	border-width: 0px; 
@@ -61,7 +61,7 @@
 	font-weight: 900; 
 	font-size: 36px; 
 	line-height: 36px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	padding: 0px 4px; 
 	margin: 0px; 
 	border-width: 0px; 
@@ -78,7 +78,7 @@
 	font-weight: 900; 
 	font-size: 20px; 
 	line-height: 20px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	padding: 2px 4px; 
 	margin: 0px; 
 	border-width: 0px; 
@@ -96,7 +96,7 @@
 	font-weight: 900; 
 	font-size: 14px; 
 	line-height: 20px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	margin: 0px; 
 	border-width: 0px; 
 	border-style: none; 
@@ -111,7 +111,7 @@
 	font-weight: 900; 
 	font-size: 20px; 
 	line-height: 20px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	margin: 0px; 
 	border-width: 0px; 
 	border-style: none; 
@@ -126,7 +126,7 @@
 	font-weight: 900; 
 	font-size: 40px; 
 	line-height: 40px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	margin: 0px; 
 	border-width: 0px; 
 	border-style: none; 
@@ -141,7 +141,7 @@
 	font-weight: 900; 
 	font-size: 60px; 
 	line-height: 60px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	margin: 0px; 
 	border-width: 0px; 
 	border-style: none; 
@@ -152,10 +152,10 @@
 	position: absolute; 
 	color: #fff; 
 	text-shadow: none; 
-	font-weight: 900; 
+	font-weight: 500;
 	font-size: 72px; 
 	line-height: 72px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	margin: 0px; 
 	border-width: 0px; 
 	border-style: none; 
@@ -170,7 +170,7 @@
 	font-weight: 900; 
 	font-size: 60px; 
 	line-height: 60px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	margin: 0px; 
 	border-width: 0px; 
 	border-style: none; 
@@ -189,7 +189,7 @@
 	font-weight: 900; 
 	font-size: 60px; 
 	line-height: 60px; 
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	margin: 0px; 
 	border-width: 0px; 
 	border-style: none; 
@@ -204,7 +204,7 @@
 	-webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
-											
+
 .tp-caption.black{
 	color: #000; 
 	text-shadow: none;		

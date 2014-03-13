@@ -207,7 +207,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
-  color: #5e5e5e;
+  color: #626e7c;
   background-color: white;
 }
 
@@ -3535,7 +3535,7 @@ input[type="submit"].btn.btn-mini {
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
-  color: #5e5e5e;
+  color: #626e7c;
   text-shadow: 0 1px 0 white;
 }
 .navbar .brand:hover, .navbar .brand:focus {
@@ -3545,11 +3545,11 @@ input[type="submit"].btn.btn-mini {
 .navbar-text {
   margin-bottom: 0;
   line-height: 85px;
-  color: #5e5e5e;
+  color: #626e7c;
 }
 
 .navbar-link {
-  color: #5e5e5e;
+  color: #626e7c;
 }
 .navbar-link:hover, .navbar-link:focus {
   color: #5f7e99;
@@ -3715,7 +3715,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a {
   float: none;
   padding: 30.5px 15px 30.5px;
-  color: #5e5e5e;
+  color: #626e7c;
   text-decoration: none;
   text-shadow: 0 1px 0 white;
 }
@@ -3727,14 +3727,14 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
   background-color: transparent;
-  color: #5f7e99;
+  color: #11badd;
   text-decoration: none;
 }
 
 .navbar .nav > .active > a,
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
-  color: #5f7e99;
+  color: #11badd;
   text-decoration: none;
   background-color: #f2f2f2;
   -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
@@ -3843,8 +3843,8 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar .nav li.dropdown > .dropdown-toggle .caret {
-  border-top-color: #5e5e5e;
-  border-bottom-color: #5e5e5e;
+  border-top-color: #626e7c;
+  border-bottom-color: #626e7c;
 }
 
 .navbar .nav li.dropdown.open > .dropdown-toggle .caret,

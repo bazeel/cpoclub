@@ -138,6 +138,23 @@ ul.icons li [class*=" icon-"] {
   width: .75em;
 }
 
+ul.icons.ico-logo-small
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul.icons.ico-logo-small li
+{
+    background-image: url(../cpoclub/img/ico-logo-small.png);
+    background-repeat: no-repeat;
+    background-position: 0px 4px;
+    padding-left: 24px;
+    text-indent: 0px;
+    color: #626e7c;
+}
+
 .icon-muted {
   color: #eeeeee;
 }

@@ -130,9 +130,10 @@ li [class*=" icon-"].icon-large, .nav li [class^="icon-"].icon-large,
 }
 
 ul.icons {
-  list-style-type: none;
-  text-indent: -.75em;
+    list-style-type: none;
+    text-indent: -.75em;
 }
+
 ul.icons li [class^="icon-"],
 ul.icons li [class*=" icon-"] {
   width: .75em;

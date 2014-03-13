@@ -157,7 +157,7 @@ body.hyphenated {
 
 /* - 1.2 Headers - */
 h1, h2, h3, h4, h5 {
-  color: #222222;
+  color: #31373e;
   text-transform: uppercase;
   margin: 0;
 }
@@ -365,6 +365,7 @@ hr.invisible {
 
 .light {
   font-weight: 300;
+  color: #626e7c;
 }
 .super .light {
   font-weight: 100;
@@ -588,7 +589,7 @@ body {
   font-weight: 900;
   font-size: 30px;
   line-height: 30px;
-  padding: 25.5px 20px 29.5px;
+  padding: 12px 0 0 0;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -1280,6 +1281,67 @@ body {
   margin-top: -0.5em;
   margin-left: -0.5em;
 }
+
+.round-box i.ico-logo {
+     background-image: url(../cpoclub/img/ico-logo.png);
+     width: 65px;
+     height: 65px;
+     margin-top: -32px;
+     margin-left: -32px;
+ }
+
+.round-box i.ico-members {
+    background-image: url(../cpoclub/img/ico-members.png);
+    width: 57px;
+    height: 57px;
+    margin-top: -28px;
+    margin-left: -28px;
+}
+
+.round-box i.ico-events {
+    background-image: url(../cpoclub/img/ico-events.png);
+    width: 56px;
+    height: 56px;
+    margin-top: -28px;
+    margin-left: -28px;
+}
+
+.round-box i.ico-piechart {
+    background-image: url(../cpoclub/img/ico-piechart.png);
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    margin-left: -24px;
+}
+.project-description li a,
+.project-description li p {
+    margin: 0 0 0 0;
+    font-size: 14px;
+}
+
+.text-blue,
+a.blue-underline {
+    color: #00b5db;
+}
+
+a.blue-underline {
+    text-decoration:underline;
+}
+
+.text-red,
+a.red-underline {
+    color: #fa4a55;
+}
+
+a.red-underline {
+    text-decoration:underline;
+}
+
+a.red-underline:hover,
+a.blue-underline:hover {
+    text-decoration: none;
+}
+
 .round-box .tag {
   font-size: 12px;
   color: white;
@@ -3282,7 +3344,7 @@ body {
   background: none;
 }
 
-.logn-form,
+.login-form,
 .registration-form {
     margin-left: 10px !important;
     position: relative;
@@ -3297,3 +3359,12 @@ body {
     margin-left: 0px;
     padding-bottom: 0px;
 }
+
+div.span12.text-center.sponsor-link {
+    margin-left: 0px;
+}
+
+.sponsor-link h3 a {
+    font-weight: normal;
+}
+

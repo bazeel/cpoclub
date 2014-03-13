@@ -18,6 +18,7 @@ def login_view(request):
     u = request.user
     if u.is_authenticated():
         return HttpResponseRedirect(reverse('index'))
+
     disabled_account = False
     invalid_login = False
     if request.method == 'POST':
@@ -29,6 +30,7 @@ def login_view(request):
                 if user.is_active:
                     login(request, user)
                     return HttpResponseRedirect(reverse('index'))
+
                 else:
                     disabled_account = True # Return a 'disabled account' error message
             else:
@@ -42,13 +44,14 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect(reverse('index'))
 
 
 def register(request):
     u = request.user
     if u.is_authenticated():
         return HttpResponseRedirect(reverse('index'))
+
     user_form = UserForm()
     success = False
     if request.method == 'POST':
