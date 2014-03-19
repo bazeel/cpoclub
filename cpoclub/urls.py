@@ -2,6 +2,8 @@ from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 from django.contrib import admin
 
+from filebrowser.sites import site
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -11,6 +13,8 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^admin/filebrowser/', include(site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^account/', include('account.urls')),
 
     #url(r'^login/$', 'django.contrib.auth.views.login', name='login'),

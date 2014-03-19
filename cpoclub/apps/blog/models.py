@@ -1,20 +1,22 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from tinymce import models as tinymce_models
 
-class Post(models.Model):
 
-    language = models.CharField(_('language'), max_length=3, choices=settings.LANGUAGES)
+class Record(models.Model):
+
+    active = models.BooleanField(_('active'), default=True)
+    public = models.BooleanField(_('public'), default=True)
     title = models.CharField(_('title'), max_length=255)
     preview = models.TextField(_('preview'))
     content = tinymce_models.HTMLField(_('content'))
-    interesting = models.BooleanField(_('very interesting'))
-    date = models.DateField(_('date'))
+    date = models.DateTimeField(auto_now_add=True, blank=True)
 
     class Meta:
         ordering = ['-date']
-        verbose_name = _('post')
-        verbose_name_plural = _('posts')
+        verbose_name = _('record')
+        verbose_name_plural = _('records')
 
     def __unicode__(self):
         return self.title
