@@ -2,5 +2,6 @@ bin/
 lib/
 local
 include/
+cpoclub/static_root/
 *.pyc
 ignored_settings.py
