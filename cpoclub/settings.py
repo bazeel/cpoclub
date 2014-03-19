@@ -92,12 +92,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
+GRAPPELLI_ADMIN_TITLE = 'cpoclub.ru'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
+
+
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
