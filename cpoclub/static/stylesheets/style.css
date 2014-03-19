@@ -361,6 +361,7 @@ hr.invisible {
 
 .regular {
   font-weight: 400;
+  color: #626e7c;
 }
 
 .light {
@@ -670,9 +671,10 @@ body {
 #footer {
   text-shadow: 1px 1px 0px white;
 }
-#footer a {
+/*#footer a {
   color: #222222;
-}
+}*/
+
 #footer.theme-dark {
   color: #d8d8d8;
   text-shadow: 1px 1px 0px black;
@@ -1090,7 +1092,7 @@ body {
   font-weight: 300;
 }
 .widget_archive h4 a {
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 /* -- 5.3.4 Tags widget --*/
@@ -1324,22 +1326,24 @@ a.blue-underline {
     color: #00b5db;
 }
 
-a.blue-underline {
-    text-decoration:underline;
-}
-
 .text-red,
 a.red-underline {
     color: #fa4a55;
 }
 
+a.blue-underline,
 a.red-underline {
-    text-decoration:underline;
+    text-decoration:none;
 }
 
 a.red-underline:hover,
 a.blue-underline:hover {
-    text-decoration: none;
+    text-decoration: underline;
+}
+
+a.blue-underline,
+a.red-underline {
+    cursor:pointer;
 }
 
 .round-box .tag {
@@ -1402,7 +1406,8 @@ a.blue-underline:hover {
   margin-right: -70px;
 }
 .round-box.box-big .box-inner {
-  width: 200px;
+    width: 250px;
+    /*height: 167px;*/
 }
 .round-box.box-big .tag {
   margin-right: -95px;
@@ -3352,7 +3357,10 @@ body {
 
 .profile-img {
     padding-bottom: 25px;
-    border-bottom: 1px solid #dfdfe4;
+}
+
+.profile-img span.box-inner {
+    width: 200px !important;
 }
 
 .profile-posts  .post-body {
@@ -3366,5 +3374,79 @@ div.span12.text-center.sponsor-link {
 
 .sponsor-link h3 a {
     font-weight: normal;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+.navbar .nav > li > a {
+    padding: 30px 8px 30px;
+}
+
+.navbar .nav > li.active > a ,
+.navbar .nav > li > a:hover {
+    text-decoration: underline;
+    color: #11badd;
+}
+
+.footer-menu a.sign-in,
+.navbar .nav > li > a.sign-in {
+    font-weight: 500;
+}
+
+.navbar .nav > li > a.username {
+    text-transform: none !important;
+    text-decoration: none;
+}
+
+.navbar .nav > li > a.username span:hover {
+    border-bottom: 1px dotted;
+}
+
+ul.profile-menu {
+    margin-left: 68px;
+}
+
+.divider-line {
+    border-top: 1px solid #dcdce1;
+}
+
+.post-body p {
+    font-size: 14px;
+}
+
+.post-body.blog-detail,
+.post-body.blog-item,
+.post-body.lib-item {
+    border-bottom: none;
+    font-weight: 300;
+    margin-bottom: 0px;
+}
+
+.post-body.blog-detail {
+    padding-bottom: 24px;
+}
+
+article.blog-detail {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #dfdfe4;
+}
+
+.blog-detail p,
+.comments  p {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.sidebar-widget.widget_meta,
+.sidebar-widget.widget_categories   {
+    font-weight: 300;
 }
 

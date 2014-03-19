@@ -148,6 +148,15 @@ function fancyboxInit() {
             }
         }
     });
+    $('.fancybox-image').fancybox({
+        padding: 1,
+        type: "image",
+        helpers : {
+            title : {
+                type : 'over'
+            }
+        }
+    });
     $('.fancybox-media').fancybox({
         padding: 1,
         openEffect  : 'none',

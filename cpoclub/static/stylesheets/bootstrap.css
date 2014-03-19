@@ -3724,16 +3724,18 @@ input[type="submit"].btn.btn-mini {
   margin-top: 8px;
 }
 
-.navbar .nav > li > a:focus,
+.navbar .nav > li > a:focus {
+    background-color: transparent;
+}
+
 .navbar .nav > li > a:hover {
   background-color: transparent;
-  color: #11badd;
   text-decoration: none;
 }
 
 .navbar .nav > .active > a,
 .navbar .nav > .active > a:hover,
-.navbar .nav > .active > a:focus {
+/*.navbar .nav > .active > a:focus*/ {
   color: #11badd;
   text-decoration: none;
   background-color: #f2f2f2;
