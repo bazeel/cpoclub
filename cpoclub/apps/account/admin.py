@@ -19,7 +19,7 @@ class UserProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(UserAdmin):
     list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'profile__invcode')
-    inlines = [UserProfileInline,]
+    inlines = [UserProfileInline]
 
     def profile__invcode(self, obj):
         return obj.profile.invitation_code

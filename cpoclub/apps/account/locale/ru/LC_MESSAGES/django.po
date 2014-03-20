@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-07 16:18+0400\n"
+"POT-Creation-Date: 2014-03-20 15:35+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,56 +19,56 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: admin.py:13 models.py:19
+#: admin.py:13 models.py:18
 msgid "user"
 msgstr ""
 
-#: admin.py:26 models.py:8 models.py:14 models.py:20
+#: admin.py:26 models.py:7 models.py:13 models.py:19
 msgid "invitation code"
 msgstr "код приглашения"
 
-#: forms.py:20
+#: forms.py:12 forms.py:30
 #, fuzzy
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: forms.py:21
+#: forms.py:13 forms.py:31
 msgid "Password"
 msgstr ""
 
-#: forms.py:23
+#: forms.py:33
 msgid "Confirm password"
 msgstr "Подтверждение пароля"
 
-#: forms.py:27
+#: forms.py:37
 msgid "Invitation code"
 msgstr "Код приглашения"
 
-#: forms.py:29
+#: forms.py:39
 msgid "Firstname"
 msgstr "Имя"
 
-#: forms.py:30
+#: forms.py:40
 msgid "Lastname"
 msgstr "Фамилия"
 
-#: forms.py:36
+#: forms.py:46
 msgid "Invitation code is incorrect"
 msgstr "Неправильный код"
 
-#: forms.py:43
+#: forms.py:53
 msgid "A user with that invitation code already exists."
 msgstr "Пользователь с таким кодом уже существует"
 
-#: forms.py:50
+#: forms.py:60
 msgid "A user with that username already exists."
 msgstr ""
 
-#: forms.py:55
+#: forms.py:65
 msgid "The two password fields didn't match."
 msgstr ""
 
-#: models.py:15
+#: models.py:14
 msgid "invitation codes"
 msgstr "Коды приглашения"
 
@@ -84,6 +84,10 @@ msgstr "организация"
 msgid "post"
 msgstr "должность"
 
-#: models.py:26 models.py:27
+#: models.py:24
+msgid "biography"
+msgstr "биография"
+
+#: models.py:27 models.py:28
 msgid "user profile"
 msgstr "Профиль пользователя"

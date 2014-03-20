@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load blog_extras thumbnail %}
+
+{% block content %}
+            <div class="row-fluid divider-line"></div>
+            
+            <!--section class="section section-alt">
+                <div class="row-fluid">
+                    <div class="super-hero-unit">
+                        <figure>
+                            <img alt="события" src="/static/cpoclub/img/header-bg-default-1250x152.png">
+                            <figcaption class="flex-caption">
+                                <h1 class="super animated fadeinup delayed">Блог</h1>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section-->    
+
+<section class="section section-padded">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            
+
+<div class="span9">
+
+{% for object in object_list %}
+<article id="post-385" class="post-385 post type-post status-publish format-standard sticky hentry category-blog category-timeline tag-boating tag-mountains tag-recreation tag-sports row-fluid">
+        <div class="span2 post-info">
+        <div class="round-box box-small"><a class="box-inner" href="#">
+            {% if object.user.profile.avatar %}
+                <img alt="" src="{% thumbnail object.user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
+            {% else %}
+                <img alt="" src="/static/images/avatar.png" class="img-circle  avatar-300 photo" height="300" width="300">
+            {% endif %}
+        </a></div>
+        <h5 class="text-center regular">
+            {{ object.user.first_name }} {{ object.user.last_name }}
+        </h5>
+        <h5 class="text-center light">{{ object.date|date:"j M, Y" }}</h5>
+    </div>
+        <div class="span10 post-body blog-item">
+            <div class="post-head">
+                <h2 class="small-screen-center">
+                    <a href="{{object.get_absolute_url}}" title="{{ object.title|safe }}" rel="bookmark">
+                        <span class="regular">{{ object.title|safe }}</span>
+                    </a>
+                </h2>
+                
+                <div class="post-extras">
+                    <!--i class="icon-tags"></i>
+                    Tags: <a href="http://themes.oxygenna.com/smartbox/tag/mountains/" rel="tag">Mountains</a>, <a href="http://themes.oxygenna.com/smartbox/tag/recreation/" rel="tag">Recreation</a>, <a href="http://themes.oxygenna.com/smartbox/tag/winter/" rel="tag">Winter</a>            <i class="icon-bookmark"></i>
+                    <a href="http://themes.oxygenna.com/smartbox/category/blog/" title="View all posts in blog" rel="category tag">blog</a-->        
+                    <i class="icon-comments"></i>
+                    <a href="{{object.get_absolute_url}}#comments">комментарии ({{ object.active_comments.count }})</a>
+                </div>
+            </div>
+            <div class="entry-content">
+                <p>{{ object.preview|safe }}</p>
+                <p> <a href="{{object.get_absolute_url}}" class="more-link blue-underline">Подробнее</a></p>
+            </div>
+        </div>
+</article>
+{% endfor %}
+
+
+        <div class="pagination pagination-small pagination-centered">
+          <ul>
+            <li class="disabled">
+              <a href="#">
+                <i class="icon-angle-left"></i>
+              </a>
+            </li>
+            <li class="active">
+              <a href="#">1</a>
+            </li>
+            <li>
+              <a href="#">2</a>
+            </li>
+            <li>
+              <a href="#">3</a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+    
+</div>
+
+<aside class="span3 sidebar">
+    <div id="recent-posts-3" class="sidebar-widget  widget_recent_entries"><h3 class="sidebar-header regular">Последние записи</h3>
+        <ul>
+            <li>
+                <div class="row-fluid">
+                    <div class="span3">
+                        <div class="round-box box-mini box-colored">
+                            <a class="box-inner" href="http://themes.oxygenna.com/smartbox/2013/04/09/you-think-water-moves-fast-2/">
+                            <img width="300" height="300" src="http://themes.oxygenna.com/smartbox/files/2013/04/landscape-7-1250x600-300x300.jpg" class="img-circle wp-post-image" alt="landscape-7-1250x600">                                </a>
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <h4 class="regular">
+                            <a href="http://themes.oxygenna.com/smartbox/2013/04/09/you-think-water-moves-fast-2/" title="Suspendisse in urna">Suspendisse in urna</a>
+                        </h4>
+                        <h5 class="light">
+                            09 April 2013                            </h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row-fluid">
+                    <div class="span3">
+                        <div class="round-box box-mini box-colored">
+                            <a class="box-inner" href="http://themes.oxygenna.com/smartbox/2013/04/08/nunc-vehicula-dapibus/">
+                            <img width="300" height="300" src="http://themes.oxygenna.com/smartbox/files/2013/03/landscape-5-800x400-300x300.jpg" class="img-circle wp-post-image" alt="landscape-5-800x400"><i class="icon-picture"></i>                                </a>
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <h4 class="regular">
+                            <a href="http://themes.oxygenna.com/smartbox/2013/04/08/nunc-vehicula-dapibus/" title="Nunc vehicula dapibus">Nunc vehicula dapibus</a>
+                        </h4>
+                        <h5 class="light">
+                            08 April 2013                            </h5>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+            </div>
+
+<div id="archives-3" class="sidebar-widget  widget_archive"><h3 class="sidebar-header regular">Архив</h3>        <ul>
+            <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/04/" class=" blue-underline">April 2013</a>&nbsp;(6)</h4></li>
+    <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/03/" class=" blue-underline">March 2013</a>&nbsp;(2)</h4></li>
+    <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/02/" class=" blue-underline">February 2013</a>&nbsp;(4)</h4></li>
+    <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/01/" class=" blue-underline">January 2013</a>&nbsp;(1)</h4></li>
+        </ul>
+</div></aside>
+    
+    
+        </div>
+    </div>
+</section>
+            
+{% endblock %}

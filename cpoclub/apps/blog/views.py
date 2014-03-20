@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+
+def record_detail(request):
+    return render(request, 'blog/record_detail.html', {
+        'form': form})

@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 from django.contrib import admin
@@ -16,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^account/', include('account.urls')),
+    url(r'^blog/', include('blog.urls')),
 
     #url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     #url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
@@ -28,4 +31,4 @@ urlpatterns = patterns('',
         'django.contrib.auth.views.password_reset_confirm',
         name='password_reset_confirm'),
     url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
