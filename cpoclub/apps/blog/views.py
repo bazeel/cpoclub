@@ -1,5 +1,5 @@
 import calendar
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from datetime import date
 from django.views.generic import ListView
 from .models import Record
@@ -30,5 +30,7 @@ class CustomRecordList(ListView):
 
 
 def record_detail(request, pk):
+    obj = get_object_or_404(Record, pk=pk)
+
     return render(request, 'blog/record_detail.html', {
-        'qqq': 'qqq'})
+        'object': obj})
