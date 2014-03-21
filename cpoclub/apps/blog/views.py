@@ -20,8 +20,6 @@ class CustomRecordList(ListView):
             month = int(month)
             year = int(year)
 
-            self.context_extra = {'year': year, 'month': month}
-
             last_day = calendar.monthrange(year, month)[1]
 
             start_date = date(year, month, 1)
