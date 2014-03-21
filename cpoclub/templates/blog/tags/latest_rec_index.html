@@ -1,0 +1,39 @@
+{% load thumbnail %}
+<section class="section section-padded ">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h1>Последние <span class="light">публикации</span></h1>
+        </div>
+        <div class="row-fluid">
+            <ul class="unstyled row-fluid">
+
+                {% for object in object_list %}
+                    <li class="span4">
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <div class="round-box box-small box-colored">
+                                    <a href="{{ object.get_absolute_url }}" class="box-inner">
+                                        {% if object.user.profile.avatar %}
+                                            <img alt="" src="{% thumbnail object.user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
+                                        {% else %}
+                                            <img alt="" src="/static/images/avatar.png" class="img-circle  avatar-300 photo" height="300" width="300">
+                                        {% endif %}
+                                    </a>
+                                </div>
+
+                                <h5 class="text-center light">{{ object.date|date:"j M Y" }}  </h5>
+                            </div>
+                            <div class="span8">
+                                <h3 class="regular">
+                                    <a href="{{ object.get_absolute_url }}">{{ object.title }}</a>
+                                </h3>
+                                <p>{{ object.preview|truncatewords:15 }}</p>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+</section>
