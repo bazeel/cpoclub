@@ -58,12 +58,15 @@
                                 <span class="icon-bar"></span>
                             </a>
                                         <div class="brand"><a href="/"> <img src="/static/cpoclub/img/logo.png"></a></div>
+
+                            {% url 'index' as index_url %}
+                            {% url 'record_list' as blog_url %}
                             <nav class="nav-collapse collapse" role="navigation">
                             <div class="menu-main-menu-container">
                                 <ul id="menu-main-menu" class="nav pull-right ">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835 active"><a href="#">Главная</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835 {% if request.path == index_url %}active{% endif %}"><a href="/">Главная</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Клуб</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="{% url 'record_list' %}">Блог</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835 {% if blog_url in request.path %}active{% endif %}"><a href="{% url 'record_list' %}">Блог</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Участники</a></li>
                                     <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">События</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Библиотека</a></li>
