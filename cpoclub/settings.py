@@ -4,7 +4,7 @@ import sys
 import django.conf.global_settings as DEFAULT_SETTINGS
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
-    'core.context_processors.user',
+    #'core.context_processors.user',
     'django.core.context_processors.request',
 )
 

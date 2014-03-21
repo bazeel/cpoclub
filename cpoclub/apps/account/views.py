@@ -66,7 +66,6 @@ def register(request):
             except Exception:
                 pass
             else:
-                # TODO: move InvitationCode, UserProfile to custom User.create_user method
                 code = InvitationCode.objects.get(code=user_data['invitation_code'])
                 profile = UserProfile(user=user, invitation_code=code)
                 profile.save()
@@ -75,7 +74,6 @@ def register(request):
                 user.save()
                 success = True
                 user_form = UserForm()
-                # TODO: send mail to user
 
     return render(request, 'account/register.html', {
         'user_form': user_form,

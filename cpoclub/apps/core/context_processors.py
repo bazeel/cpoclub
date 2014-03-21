@@ -1,4 +1,4 @@
 
-def user(request):
-    user = request.user
-    return {'user':user}
+#def user(request):
+#    user = request.user
+#    return {'user':user}

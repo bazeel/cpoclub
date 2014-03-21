@@ -19,7 +19,6 @@
 
         <link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext%2Ccyrillic%2Ccyrillic-ext&#038;ver=3.8.1' type='text/css' media='all' />
         <link rel='stylesheet' id='dashicons-css'  href='/static/css/dashicons.min.css?ver=3.8.1' type='text/css' media='all' />
-        <link rel='stylesheet' id='admin-bar-css'  href='/static/css/admin-bar.min.css?ver=3.8.1' type='text/css' media='all' />
         <link rel='stylesheet' id='bootstrap-css'  href='/static/stylesheets/bootstrap.css?ver=3.8.1' type='text/css' media='all' />
         <link rel='stylesheet' id='responsive-css'  href='/static/stylesheets/responsive.css?ver=3.8.1' type='text/css' media='all' />
         <link rel='stylesheet' id='font-awesome-all-css'  href='/static/stylesheets/font-awesome-all.css?ver=3.8.1' type='text/css' media='all' />
@@ -45,17 +44,8 @@
             background-attachment: scroll;
         }
         </style>
-        <style type="text/css" media="print">#wpadminbar { display:none; }</style>
-        <style type="text/css" media="screen">
-            /*html { margin-top: 32px !important; }
-            * html body { margin-top: 32px !important; }
-            @media screen and ( max-width: 782px ) {
-                html { margin-top: 46px !important; }
-                * html body { margin-top: 46px !important; }
-            }*/
-        </style>
     </head>
-    <body class="home page page-id-10 page-template page-template-template-full-nopad-php logged-in admin-bar no-customize-support custom-background  ">
+    <body class="home page page-id-10 page-template page-template-template-full-nopad-php no-customize-support custom-background  ">
                 <div class="wrapper">
             <!-- Page Header -->
             <header id="masthead">
@@ -73,21 +63,30 @@
                                 <ul id="menu-main-menu" class="nav pull-right ">
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835 active"><a href="#">Главная</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Клуб</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Блог</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="{% url 'record_list' %}">Блог</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Участники</a></li>
                                     <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">События</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Библиотека</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#" class="sign-in">Вход</a></li>
-                                    
-                                    <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-14"><a class="dropdown-toggle username" data-toggle="dropdown" data-target="#" href="http://themes.oxygenna.com/smartbox/"><span>admin</span></a>
-                                        <ul class="dropdown-menu">
-                                            <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="http://themes.oxygenna.com/smartbox/">Мой профиль</a></li>
-                                            <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="http://themes.oxygenna.com/smartbox/">Мои записи</a></li>
-                                            <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="http://themes.oxygenna.com/smartbox/">Добавить запись</a></li>
-                                            <li id="menu-item-766" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-766"><a href="http://themes.oxygenna.com/smartbox/home-flexslider/">Выход</a></li>
-                                        </ul>
-                                    </li>
-                                    
+                                    {% if not user.is_authenticated %}
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="{% url 'account_login' %}" class="sign-in">Вход</a></li>
+                                    {% else %}                                
+                                        <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-14"><a class="dropdown-toggle username" data-toggle="dropdown" data-target="#" href="http://themes.oxygenna.com/smartbox/"><span>
+
+                                            {% if user.first_name %}
+                                                {{user.first_name|capfirst}}
+                                            {% else %}
+                                                {{user.username}}
+                                            {% endif %}
+
+                                        </span></a>
+                                            <ul class="dropdown-menu">
+                                                <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="">Мой профиль</a></li>
+                                                <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="">Мои записи</a></li>
+                                                <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="">Добавить запись</a></li>
+                                                <li id="menu-item-766" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-766"><a href="{% url 'account_logout' %}">Выход</a></li>
+                                          </ul>
+                                      </li>
+                                    {% endif %}
                                 </ul>
                             </div>
                             </nav>
@@ -135,7 +134,7 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="{% url 'record_list' %}">
                   Блог
                 </a>
               </li>
@@ -155,9 +154,11 @@
                 </a>
               </li>
               <li>
-                <a class="sign-in" href="#">
-                  Вход
-                </a>
+                {% if not user.is_authenticated %}
+                    <a class="sign-in" href="{% url 'account_login' %}">Вход</a>
+                {% else %}                                
+                    <a class="sign-in" href="{% url 'account_logout' %}">Выход</a>
+                {% endif %}
               </li>
             </ul>
           </div>
@@ -167,7 +168,6 @@
     </footer>
 
     <div id="fb-root"></div>
-        <script type='text/javascript' src='/static/js/admin-bar.min.js?ver=3.8.1'></script>
 <script type='text/javascript' src='/static/javascripts/bootstrap.js?ver=2.3.1'></script>
 <script type='text/javascript' src='/static/javascripts/jquery.flexslider-min.js?ver=2.1'></script>
 <script type='text/javascript' src='/static/javascripts/jquery.fancybox.pack.js?ver=2.1.4'></script>

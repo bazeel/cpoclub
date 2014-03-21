@@ -2,9 +2,9 @@
     <ul>
         {% for y, months in archive %}
             {% for m in months %}
-                <li><h4><a href='?year={{ y.year }}&month={{ m|date:"n" }}' class=" blue-underline">
+                <li><h4><a href='?year={{ y.year }}&month={{ m|date:"n" }}' class="blue-underline">
                     {{ m|date:"F" }} {{ y.year }}
-                </h4></li>
+                </a></h4></li>
             {% endfor %}
         {% endfor %}
     </ul>

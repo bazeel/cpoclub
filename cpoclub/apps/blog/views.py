@@ -8,8 +8,7 @@ from .models import Record
 class CustomRecordList(ListView):
 
     model = Record
-    paginate_by = 1
-    #queryset=Record.objects.filter(active=True)
+    paginate_by = 10
 
     def get_queryset(self):
         qs = Record.objects.filter(active=True)
