@@ -17,6 +17,16 @@ def latest_rec_list():
     return {'object_list': qs }
 
 
+@register.inclusion_tag('blog/tags/latest_rec_index.html')
+def latest_rec_index():
+    qs = Record.objects.filter(active=True)
+    try:
+        qs = qs[:3]
+    except Exception:
+        qs = []
+
+    return {'object_list': qs }
+
 
 @register.inclusion_tag('blog/tags/rec_archive.html')
 def rec_archive():

@@ -10,6 +10,7 @@ TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
 
 BASE_DIR = os.path.dirname(__file__)
 
+LOGIN_URL = 'account_login'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
