@@ -41,45 +41,30 @@
     <div class="comments" id="comments">
         <h3 class="small-screen-center regular">комментарии</h3>
             <div id="comment-list">
-            <div class="comment byuser comment-author-christos bypostauthor even thread-even depth-1 media media-comment">
-                <div class="round-box box-mini pull-left">
-                    <a class="box-inner" href="http://themes.oxygenna.com/smartbox/author/christos/"><img alt="" src="http://1.gravatar.com/avatar/9baf024db87b6346e2a66840270034c5?s=300&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D300&amp;r=G" class="img-circle  avatar-300 photo" height="300" width="300"></a>            </div>
-                <div class="media-body">
-                    <div class="media-inner">
-                        <div class="comment byuser comment-author-christos bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-5">
-                            <h5 class="media-heading regular">
-                                christos                            -
-                                April 6, 2013                            <span class="comment-reply pull-right">
-                                                                </span>
-                            </h5>
-                            <p>Pellentesque facilisis faucibus arcu, eu fermentum tortor convallis a. n libero, rutrum quis blandit sit amet, cursus sit amet mi</p>
-                        </div>
+            {% for comment in object.active_comments %}
+                <div class="comment byuser comment-author-christos bypostauthor even thread-even depth-1 media media-comment">
+                    <div class="round-box box-mini pull-left">
+                        <a class="box-inner" href="">
+                            {% if comment.user.profile.avatar %}
+                                <img alt="" src="{% thumbnail comment.user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
+                            {% else %}
+                                <img alt="" src="/static/images/avatar.png" class="img-circle  avatar-300 photo" height="300" width="300">
+                            {% endif %}
+                        </a>            
                     </div>
-        
-                    <!--<ul class="children">-->
-                
-            <div class="comment byuser comment-author-langan even depth-2 media media-comment">
-                <div class="round-box box-mini pull-left">
-                    <a class="box-inner" href="http://themes.oxygenna.com/smartbox/author/langan/"><img alt="" src="http://1.gravatar.com/avatar/3e13d77b940b3228ec69f4b917b8c346?s=300&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D300&amp;r=G" class="img-circle  avatar-300 photo" height="300" width="300"></a>            </div>
-                <div class="media-body">
-                    <div class="media-inner">
-                        <div class="comment byuser comment-author-langan odd alt depth-2" id="comment-27">
-                            <h5 class="media-heading regular">
-                                langan                            -
-                                April 19, 2013                            <span class="comment-reply pull-right">
-                                                                </span>
-                            </h5>
-                            <p>am liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                    <div class="media-body">
+                        <div class="media-inner">
+                            <div class="comment byuser comment-author-christos bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-{{ comment.pk }}">
+                                <h5 class="media-heading regular">
+                                    {{ comment.user.first_name }} {{ comment.user.last_name }} -
+                                    {{ comment.date|date:"j M, Y" }}<span class="comment-reply pull-right"></span>
+                                </h5>
+                                <p>{{ comment.comment }}</p>
+                            </div>
                         </div>
-                    </div>
-        
                     </div><!-- /media body -->
-            </div><!-- /comment-->
-            
-            <!--</ul>--><!-- /.children -->
-
-                    </div><!-- /media body -->
-            </div><!-- /comment-->
+                </div><!-- /comment-->
+            {% endfor %}
             
         </div><!-- /#comment-list -->
         
@@ -113,57 +98,13 @@
                             </div>
 
                             
-<aside class="span3 sidebar">
-    <div id="recent-posts-3" class="sidebar-widget  widget_recent_entries"><h3 class="sidebar-header regular">Последние записи</h3>
-        <ul>
-            <li>
-                <div class="row-fluid">
-                    <div class="span3">
-                        <div class="round-box box-mini box-colored">
-                            <a class="box-inner" href="http://themes.oxygenna.com/smartbox/2013/04/09/you-think-water-moves-fast-2/">
-                            <img width="300" height="300" src="http://themes.oxygenna.com/smartbox/files/2013/04/landscape-7-1250x600-300x300.jpg" class="img-circle wp-post-image" alt="landscape-7-1250x600">                                </a>
-                        </div>
-                    </div>
-                    <div class="span9">
-                        <h4 class="regular">
-                            <a href="http://themes.oxygenna.com/smartbox/2013/04/09/you-think-water-moves-fast-2/" title="Suspendisse in urna">Suspendisse in urna</a>
-                        </h4>
-                        <h5 class="light">
-                            09 April 2013                            </h5>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="row-fluid">
-                    <div class="span3">
-                        <div class="round-box box-mini box-colored">
-                            <a class="box-inner" href="http://themes.oxygenna.com/smartbox/2013/04/08/nunc-vehicula-dapibus/">
-                            <img width="300" height="300" src="http://themes.oxygenna.com/smartbox/files/2013/03/landscape-5-800x400-300x300.jpg" class="img-circle wp-post-image" alt="landscape-5-800x400"><i class="icon-picture"></i>                                </a>
-                        </div>
-                    </div>
-                    <div class="span9">
-                        <h4 class="regular">
-                            <a href="http://themes.oxygenna.com/smartbox/2013/04/08/nunc-vehicula-dapibus/" title="Nunc vehicula dapibus">Nunc vehicula dapibus</a>
-                        </h4>
-                        <h5 class="light">
-                            08 April 2013                            </h5>
-                    </div>
-                </div>
-            </li>
-        </ul>
+            <aside class="span3 sidebar">
+                {% latest_rec_list %}
+                {% rec_archive %}
+            </aside>
 
-            </div>
-
-<div id="archives-3" class="sidebar-widget  widget_archive"><h3 class="sidebar-header regular">Архив</h3>        <ul>
-            <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/04/" class=" blue-underline">April 2013</a>&nbsp;(6)</h4></li>
-    <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/03/" class=" blue-underline">March 2013</a>&nbsp;(2)</h4></li>
-    <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/02/" class=" blue-underline">February 2013</a>&nbsp;(4)</h4></li>
-    <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/01/" class=" blue-underline">January 2013</a>&nbsp;(1)</h4></li>
-        </ul>
-</div></aside>
                             
-                            
-                    </div>
+        </div>
     </div>
 </section>
 {% endblock %}
