@@ -1,0 +1,31 @@
+    {% load thumbnail %}
+    <div id="recent-posts-3" class="sidebar-widget  widget_recent_entries"><h3 class="sidebar-header regular">Последние записи</h3>
+        <ul>
+            {% for object in object_list %}
+            <li>
+                <div class="row-fluid">
+                    <div class="span3">
+                        <div class="round-box box-mini box-colored">
+                            <a class="box-inner" href="{{ object.get_absolute_url }}">
+                                {% if object.user.profile.avatar %}
+                                    <img alt="" src="{% thumbnail object.user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
+                                {% else %}
+                                    <img alt="" src="/static/images/avatar.png" class="img-circle  avatar-300 photo" height="300" width="300">
+                                {% endif %}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <h4 class="regular">
+                            <a href="{{ object.get_absolute_url }}" title="Suspendisse in urna">{{ object.title }}</a>
+                        </h4>
+                        <h5 class="light">
+                            {{ object.date|date:"j M Y" }}                            </h5>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+
+            </div>

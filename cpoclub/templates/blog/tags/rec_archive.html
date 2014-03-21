@@ -1,0 +1,11 @@
+<div id="archives-3" class="sidebar-widget  widget_archive"><h3 class="sidebar-header regular">Архив</h3>        
+    <ul>
+        {% for y, months in archive %}
+            {% for m in months %}
+                <li><h4><a href='?year={{ y.year }}&month={{ m|date:"n" }}' class=" blue-underline">
+                    {{ m|date:"F" }} {{ y.year }}
+                </h4></li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>

@@ -7,13 +7,13 @@ from tinymce import models as tinymce_models
 
 class Record(models.Model):
 
-    user = models.ForeignKey(User, verbose_name=_('user'), related_name='records', blank=True, null=False) 
+    user = models.ForeignKey(User, verbose_name=_('user'), related_name='records') 
     active = models.BooleanField(_('active'), default=False)
     public = models.BooleanField(_('public'), default=False)
     title = models.CharField(_('title'), max_length=255)
     preview = models.TextField(_('preview'))
     content = tinymce_models.HTMLField(_('content'))
-    date = models.DateTimeField(_('date'),auto_now_add=True, blank=True)
+    date = models.DateField(_('date'),auto_now_add=True, blank=True)
 
     class Meta:
         ordering = ['-date']

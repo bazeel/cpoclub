@@ -64,81 +64,42 @@
 {% endfor %}
 
 
-        <div class="pagination pagination-small pagination-centered">
-          <ul>
-            <li class="disabled">
-              <a href="#">
-                <i class="icon-angle-left"></i>
-              </a>
-            </li>
-            <li class="active">
-              <a href="#">1</a>
-            </li>
-            <li>
-              <a href="#">2</a>
-            </li>
-            <li>
-              <a href="#">3</a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="icon-angle-right"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+{% if page_obj.has_other_pages %}
+<div class="pagination pagination-small pagination-centered">
+    <ul>
+    {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}&month={{request.GET.month}}&year={{request.GET.year}}"><i class="icon-angle-left"></i></a></li>
+    {% else %}
+        <li class="disabled"><a href="#"><i class="icon-angle-left"></i></a></li>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+        {% ifequal num page_obj.number %}
+            <li class="active"><a href="#">{{ num }}<span class="sr-only"></span></a></li>
+        {% else %}
+            <li><a href="?page={{ num }}&month={{request.GET.month}}&year={{request.GET.year}}">{{ num }}</a></li>
+        {% endifequal %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}&month={{request.GET.month}}&year={{request.GET.year}}"><i class="icon-angle-right"></i></a></li>
+    {% else %}
+        <li class="disabled"><a href="#"><i class="icon-angle-right"></i></a></li>
+    {% endif %}
+    <ul>
+</div>
+{% endif %}
 
     
 </div>
 
-<aside class="span3 sidebar">
-    <div id="recent-posts-3" class="sidebar-widget  widget_recent_entries"><h3 class="sidebar-header regular">Последние записи</h3>
-        <ul>
-            <li>
-                <div class="row-fluid">
-                    <div class="span3">
-                        <div class="round-box box-mini box-colored">
-                            <a class="box-inner" href="http://themes.oxygenna.com/smartbox/2013/04/09/you-think-water-moves-fast-2/">
-                            <img width="300" height="300" src="http://themes.oxygenna.com/smartbox/files/2013/04/landscape-7-1250x600-300x300.jpg" class="img-circle wp-post-image" alt="landscape-7-1250x600">                                </a>
-                        </div>
-                    </div>
-                    <div class="span9">
-                        <h4 class="regular">
-                            <a href="http://themes.oxygenna.com/smartbox/2013/04/09/you-think-water-moves-fast-2/" title="Suspendisse in urna">Suspendisse in urna</a>
-                        </h4>
-                        <h5 class="light">
-                            09 April 2013                            </h5>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="row-fluid">
-                    <div class="span3">
-                        <div class="round-box box-mini box-colored">
-                            <a class="box-inner" href="http://themes.oxygenna.com/smartbox/2013/04/08/nunc-vehicula-dapibus/">
-                            <img width="300" height="300" src="http://themes.oxygenna.com/smartbox/files/2013/03/landscape-5-800x400-300x300.jpg" class="img-circle wp-post-image" alt="landscape-5-800x400"><i class="icon-picture"></i>                                </a>
-                        </div>
-                    </div>
-                    <div class="span9">
-                        <h4 class="regular">
-                            <a href="http://themes.oxygenna.com/smartbox/2013/04/08/nunc-vehicula-dapibus/" title="Nunc vehicula dapibus">Nunc vehicula dapibus</a>
-                        </h4>
-                        <h5 class="light">
-                            08 April 2013                            </h5>
-                    </div>
-                </div>
-            </li>
-        </ul>
+        <aside class="span3 sidebar">
 
-            </div>
+            {% latest_rec_list %}
 
-<div id="archives-3" class="sidebar-widget  widget_archive"><h3 class="sidebar-header regular">Архив</h3>        <ul>
-            <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/04/" class=" blue-underline">April 2013</a>&nbsp;(6)</h4></li>
-    <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/03/" class=" blue-underline">March 2013</a>&nbsp;(2)</h4></li>
-    <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/02/" class=" blue-underline">February 2013</a>&nbsp;(4)</h4></li>
-    <li><h4><a href="http://themes.oxygenna.com/smartbox/2013/01/" class=" blue-underline">January 2013</a>&nbsp;(1)</h4></li>
-        </ul>
-</div></aside>
+            {% rec_archive %}
+
+        </aside>
     
     
         </div>
