@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+
+{% block content %}
+<div class="row-fluid divider-line"></div>
+<section class="section section-padded">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <aside class="span3 sidebar">
+
+                                <div class="round-box box-big profile-img">
+                                    <span class="box-inner">
+                                        {% if object.profile.avatar %}
+                                            <img alt="" src="{% thumbnail object.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
+                                        {% else %}
+                                            <img alt="" src="/static/images/avatar.png" class="img-circle  avatar-300 photo" height="300" width="300">
+                                        {% endif %}
+                                    </span>
+                                </div>
+                           
+                            
+                                <div id="meta-2" class="sidebar-widget  widget_meta">           
+                                    <ul class="profile-menu">
+                                        {% if object.pk == user.pk %}
+                                            <li><a href="{% url 'user_detail' object.pk %}" class="blue-underline">Мой профиль</a></li>
+                                            <li><a href="{% url 'user_rec_list' object.pk %}" class="blue-underline">Мои записи</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'user_detail' object.pk %}" class="blue-underline">Профиль участника</a></li>
+                                            <li><a href="{% url 'user_rec_list' object.pk %}" class="blue-underline">Записи участника</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </div>            
+                            </aside>
+                            
+            <div class="span7">
+            
+            <h2 class="small-screen-center"><span class="regular">Основные данные</span></h2>
+            
+              <table class="table table-hover">
+
+                <tbody>
+                  <tr>
+                    <td>Имя</td>
+                    <td>{{ object.first_name }}</td>
+                  </tr>
+                  <tr>
+                    <td>Фамилия</td>
+                    <td>{{ object.last_name }}</td>
+                  </tr>
+                  <tr>
+                    <td>Имя пользователя</td>
+                    <td>{{ object.username }}</td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>{{ object.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>Должность</td>
+                    <td>{{ object.profile.post }}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            {% if object.profile.biography %}
+            <div class="span9 profile-posts">            
+                <h2 class="small-screen-center"><span class="regular">Биография</span></h2>
+                    {{object.profile.biography|safe}}
+            </div>
+            {% endif %}
+
+
+            <!--div class="span9 profile-posts">
+                
+                <div class="span10 post-body">
+                  <div class="post-head">
+                    <h2 class="small-screen-center">
+                      <a href="#">
+                        <span class="regular">You think water moves fast?</span>
+                      </a>
+                    </h2>
+                    <div class="post-extras">
+                      <i class="icon-tags"></i>
+                      <a href="#">PHP,</a>
+                      <a href="#">Web Design,</a>
+                      <a href="#">Bootstrap</a>
+                      <i class="icon-bookmark"></i>
+                      <a href="#">News,</a>
+                      <a href="#">Business</a>
+                      <i class="icon-comments"></i>
+                      <a href="post.html#comments">5 comments</a>
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                  </p>
+                  <a class="more-link pull-right" href="post.html">
+                    <strong>
+                      
+                    </strong>
+                    Редактировать
+                  </a>
+                </div>
+
+                <div class="span10 post-body">
+                  <div class="post-head">
+                    <h2 class="small-screen-center">
+                      <a href="#">
+                        You think water moves fast?
+                      </a>
+                    </h2>
+                    <div class="post-extras">
+                      <i class="icon-tags"></i>
+                      <a href="#">PHP,</a>
+                      <a href="#">Web Design,</a>
+                      <a href="#">Bootstrap</a>
+                      <i class="icon-bookmark"></i>
+                      <a href="#">News,</a>
+                      <a href="#">Business</a>
+                      <i class="icon-comments"></i>
+                      <a href="post.html#comments">5 comments</a>
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                  </p>
+                  <a class="more-link pull-right" href="post.html">
+                    <strong>
+                      
+                    </strong>
+                    Редактировать
+                  </a>
+                </div>
+                
+                
+                
+                <div class="row-fluid">
+                    <div class="pagination pagination-small pagination-centered span10">
+                      <ul>
+                        <li class="disabled">
+                          <a href="#">
+                            <i class="icon-angle-left"></i>
+                          </a>
+                        </li>
+                        <li class="active">
+                          <a href="#">1</a>
+                        </li>
+                        <li>
+                          <a href="#">2</a>
+                        </li>
+                        <li>
+                          <a href="#">3</a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <i class="icon-angle-right"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+                
+            </div-->
+        </div>
+    </div>
+</section>
+
+{% include "sponsors.html" %}
+
+
+{% endblock %}

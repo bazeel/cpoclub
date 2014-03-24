@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
+from tinymce import models as tinymce_models
+
 
 class InvitationCode(models.Model):
     code = models.CharField(_('invitation code'), primary_key=True, max_length=255)
@@ -21,7 +23,8 @@ class UserProfile(models.Model):
     avatar = models.ImageField(_('avatar'), help_text=_('avatar'), upload_to='avatar', blank=True)
     organization = models.CharField(_('organization'), max_length=255, blank=True)
     post = models.CharField(_('post'), max_length=255, blank=True)
-    biography = models.TextField(_('biography'), blank=True)
+    preview = models.TextField(_('preview'), blank=True)
+    biography = tinymce_models.HTMLField(_('biography', blank=True))
 
     class Meta:
         verbose_name = _('user profile')

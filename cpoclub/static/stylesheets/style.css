@@ -3450,3 +3450,6 @@ article.blog-detail {
     font-weight: 300;
 }
 
+.members .round-box.box-big .box-inner {
+    width: 200px;
+}

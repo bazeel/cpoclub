@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+
+{% block content %}
+<div class="row-fluid divider-line"></div>
+<section class="section section-padded">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <aside class="span3 sidebar">
+
+                                <div class="round-box box-big profile-img">
+                                    <span class="box-inner">
+                                        {% if object_user.profile.avatar %}
+                                            <img alt="" src="{% thumbnail object_user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
+                                        {% else %}
+                                            <img alt="" src="/static/images/avatar.png" class="img-circle  avatar-300 photo" height="300" width="300">
+                                        {% endif %}
+                                    </span>
+                                </div>
+                           
+                            
+                                <div id="meta-2" class="sidebar-widget  widget_meta">           
+                                    <ul class="profile-menu">
+                                        {% if object_user.pk == user.pk %}
+                                            <li><a href="{% url 'user_detail' object_user.pk %}" class="blue-underline">Мой профиль</a></li>
+                                            <li><a href="{% url 'user_rec_list' object_user.pk %}" class="blue-underline">Мои записи</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'user_detail' object_user.pk %}" class="blue-underline">Профиль участника</a></li>
+                                            <li><a href="{% url 'user_rec_list' object_user.pk %}" class="blue-underline">Записи участника</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </div>            
+                            </aside>
+
+
+            <div class="span9 profile-posts">
+                {% for object in object_list %}
+                <div class="span10 post-body">
+                  <div class="post-head">
+                    <h2 class="small-screen-center">
+                      <a href="#">
+                        <span class="regular">You think water moves fast?</span>
+                      </a>
+                    </h2>
+                    <div class="post-extras">
+                      <i class="icon-tags"></i>
+                      <a href="#">PHP,</a>
+                      <a href="#">Web Design,</a>
+                      <a href="#">Bootstrap</a>
+                      <i class="icon-bookmark"></i>
+                      <a href="#">News,</a>
+                      <a href="#">Business</a>
+                      <i class="icon-comments"></i>
+                      <a href="post.html#comments">5 comments</a>
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                  </p>
+                  <a class="more-link pull-right" href="post.html">
+                    <strong>
+                      
+                    </strong>
+                    Редактировать
+                  </a>
+                </div>
+                {% endfor %}
+                
+                    <div class="row-fluid">
+                    {% if page_obj.has_other_pages %}
+                    <div class="pagination pagination-small pagination-centered span10">
+                        <ul>
+                        {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}"><i class="icon-angle-left"></i></a></li>
+                        {% else %}
+                            <li class="disabled"><a href="#"><i class="icon-angle-left"></i></a></li>
+                        {% endif %}
+
+                        {% for num in page_obj.paginator.page_range %}
+                            {% ifequal num page_obj.number %}
+                                <li class="active"><a href="#">{{ num }}<span class="sr-only"></span></a></li>
+                            {% else %}
+                                <li><a href="?page={{ num }}">{{ num }}</a></li>
+                            {% endifequal %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}"><i class="icon-angle-right"></i></a></li>
+                        {% else %}
+                            <li class="disabled"><a href="#"><i class="icon-angle-right"></i></a></li>
+                        {% endif %}
+                        <ul>
+                    </div>
+                    {% endif %}
+                  </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "sponsors.html" %}
+
+
+{% endblock %}
