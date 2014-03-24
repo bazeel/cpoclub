@@ -10,8 +10,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'cpoclub.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tinymce/', include('tinymce.urls')),
@@ -19,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^account/', include('account.urls')),
     url(r'^blog/', include('blog.urls')),
+    url(r'^pages/', include('django.contrib.flatpages.urls')),
 
     #url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     #url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),

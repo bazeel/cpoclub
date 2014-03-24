@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row-fluid divider-line"></div>
+
+    <article id="post-294" class="post-294 page type-page status-publish hentry">
+
+         <section class="section section-padded "><div class="container-fluid"><div class="section-header"><h1><span class="light">{{ flatpage.title|safe }}</span></h1></div><div class="row-fluid">
+        {{ flatpage.content|safe }}
+    </article>
+
+    {% include "sponsors.html" %}
+
+{% endblock %}

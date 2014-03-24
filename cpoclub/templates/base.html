@@ -1,3 +1,4 @@
+{% load flatpages %}
 <!DOCTYPE html>
 <!--[if IE 8 ]> <html lang="ru-RU" class="ie8"> <![endif]-->
 <!--[if IE 9 ]> <html lang="ru-RU" class="ie9"> <![endif]-->
@@ -61,26 +62,25 @@
 
                             {% url 'index' as index_url %}
                             {% url 'record_list' as blog_url %}
+                            {% url 'account_login' as account_login %}
                             <nav class="nav-collapse collapse" role="navigation">
                             <div class="menu-main-menu-container">
                                 <ul id="menu-main-menu" class="nav pull-right ">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835 {% if request.path == index_url %}active{% endif %}"><a href="/">Главная</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Клуб</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835 {% if blog_url in request.path %}active{% endif %}"><a href="{% url 'record_list' %}">Блог</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Участники</a></li>
-                                    <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">События</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#">Библиотека</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if request.path == index_url %}active{% endif %}"><a href="/">Главная</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page {% if request.path == '/club/' %}active{% endif %}"><a href="/club/">Клуб</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if blog_url in request.path %}active{% endif %}"><a href="{% url 'record_list' %}">Блог</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">Участники</a></li>
+                                    <li  class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">События</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">Библиотека</a></li>
                                     {% if not user.is_authenticated %}
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="{% url 'account_login' %}" class="sign-in">Вход</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if request.path == account_login %}active{% endif %}"><a href="{% url 'account_login' %}" class="sign-in">Вход</a></li>
                                     {% else %}                                
                                         <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-14"><a class="dropdown-toggle username" data-toggle="dropdown" data-target="#" href="http://themes.oxygenna.com/smartbox/"><span>
-
                                             {% if user.first_name %}
                                                 {{user.first_name|capfirst}}
                                             {% else %}
                                                 {{user.username}}
                                             {% endif %}
-
                                         </span></a>
                                             <ul class="dropdown-menu">
                                                 <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="">Мой профиль</a></li>
@@ -127,12 +127,12 @@
           
             <ul class="unstyled inline text-right small-screen-center footer-menu">
               <li>
-                <a href="#">
+                <a href="/">
                   Главная
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="/club/">
                   Клуб
                 </a>
               </li>
