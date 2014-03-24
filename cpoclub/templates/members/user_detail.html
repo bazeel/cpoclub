@@ -25,6 +25,7 @@
                                         {% if object.pk == user.pk %}
                                             <li><a href="{% url 'user_detail' object.pk %}" class="blue-underline">Мой профиль</a></li>
                                             <li><a href="{% url 'user_rec_list' object.pk %}" class="blue-underline">Мои записи</a></li>
+                                            <li><a href="{% url 'user_rec_add' object.pk %}" class="blue-underline">Добавить запись</a></li>
                                         {% else %}
                                             <li><a href="{% url 'user_detail' object.pk %}" class="blue-underline">Профиль участника</a></li>
                                             <li><a href="{% url 'user_rec_list' object.pk %}" class="blue-underline">Записи участника</a></li>

@@ -19,8 +19,8 @@ class MembersList(ListView):
 
 class UserRecList(ListView):
 
-    paginate_by = 1
-    
+    paginate_by = 10
+
 
     def get_template_names(self):
         template_name = 'members/user_rec_list.html'
@@ -38,3 +38,13 @@ class UserRecList(ListView):
         user = User.objects.get(pk=user_pk)
         context['object_user'] = user
         return context
+
+def user_rec_add(request, pk):
+
+    pk = int(pk)
+    u = request.user
+    if pk != u.pk:
+        return HttpResponseRedirect(reverse('user_detail', kwargs={'pk':pk}))
+
+    return render(request, 'members/user_rec_add.html', {
+        'object': u})

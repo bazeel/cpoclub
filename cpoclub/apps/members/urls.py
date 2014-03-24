@@ -11,4 +11,5 @@ urlpatterns = patterns('',
         login_required(DetailView.as_view(model=User, template_name='members/user_detail.html')), 
         name='user_detail'),
     url(r'^(?P<pk>\d+)/rec/$', login_required(views.UserRecList.as_view()), name='user_rec_list'),
+    url(r'^(?P<pk>\d+)/rec_add/$', login_required(views.user_rec_add), name='user_rec_add'),
 )

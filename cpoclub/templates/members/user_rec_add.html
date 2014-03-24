@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+
+{% block content %}
+<div class="row-fluid divider-line"></div>
+<section class="section section-padded">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <aside class="span3 sidebar">
+
+                                <div class="round-box box-big profile-img">
+                                    <span class="box-inner">
+                                        {% if object.profile.avatar %}
+                                            <img alt="" src="{% thumbnail object.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
+                                        {% else %}
+                                            <img alt="" src="/static/images/avatar.png" class="img-circle  avatar-300 photo" height="300" width="300">
+                                        {% endif %}
+                                    </span>
+                                </div>
+                           
+                            
+                                <div id="meta-2" class="sidebar-widget  widget_meta">           
+                                    <ul class="profile-menu">
+                                        {% if object.pk == user.pk %}
+                                            <li><a href="{% url 'user_detail' object.pk %}" class="blue-underline">Мой профиль</a></li>
+                                            <li><a href="{% url 'user_rec_list' object.pk %}" class="blue-underline">Мои записи</a></li>
+                                            <li><a href="{% url 'user_rec_add' object.pk %}" class="blue-underline">Добавить запись</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'user_detail' object.pk %}" class="blue-underline">Профиль участника</a></li>
+                                            <li><a href="{% url 'user_rec_list' object.pk %}" class="blue-underline">Записи участника</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </div>            
+                            </aside>
+                            
+        <div class="span7">
+            
+            <div class="span9 profile-posts">
+                <form action="{% url 'user_rec_add' user.pk %}" class="rec-add-form" method="post" >
+                    <fieldset>
+                        {% csrf_token %}
+
+                        <div class="control-group ">
+                            <input class="span12 " name="title" placeholder="Заголовок" type="text">
+                        </div>
+
+                        <div class="control-group ">
+                            <input type="checkbox" name="public" value="True" checked>Отображать для незарегистрированных пользователей
+                        </div>
+
+
+                        <div class="control-group message"><div class="controls"><textarea id="comment" name="content" placeholder="Ваша запись" class="input-xxlarge" rows="20"></textarea></div></div>                                                
+                        <div class="control-group">
+                            <div class="controls small-screen-center">
+                                <button name="submit" type="submit" class="btn btn-primary" id="submit" value="Add comment">Отправить</button>
+                                <input type="hidden" name="comment_post_ID" value="554" id="comment_post_ID">
+                            <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                        </div>
+                        </div>
+
+                    </fieldset>
+                </form> 
+ 
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "sponsors.html" %}
+
+
+{% endblock %}

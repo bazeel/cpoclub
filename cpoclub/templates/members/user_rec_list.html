@@ -25,6 +25,7 @@
                                         {% if object_user.pk == user.pk %}
                                             <li><a href="{% url 'user_detail' object_user.pk %}" class="blue-underline">Мой профиль</a></li>
                                             <li><a href="{% url 'user_rec_list' object_user.pk %}" class="blue-underline">Мои записи</a></li>
+                                            <li><a href="{% url 'user_rec_add' object_user.pk %}" class="blue-underline">Добавить запись</a></li>
                                         {% else %}
                                             <li><a href="{% url 'user_detail' object_user.pk %}" class="blue-underline">Профиль участника</a></li>
                                             <li><a href="{% url 'user_rec_list' object_user.pk %}" class="blue-underline">Записи участника</a></li>
@@ -38,35 +39,23 @@
                 {% for object in object_list %}
                 <div class="span10 post-body">
                   <div class="post-head">
-                    <h2 class="small-screen-center">
-                      <a href="#">
-                        <span class="regular">You think water moves fast?</span>
+                    <h2 class="small-screen-center regular">
+                      <a href="{{ object.get_absolute_url }}">
+                        {{ object.title|safe }}
                       </a>
                     </h2>
                     <div class="post-extras">
-                      <i class="icon-tags"></i>
-                      <a href="#">PHP,</a>
-                      <a href="#">Web Design,</a>
-                      <a href="#">Bootstrap</a>
-                      <i class="icon-bookmark"></i>
-                      <a href="#">News,</a>
-                      <a href="#">Business</a>
-                      <i class="icon-comments"></i>
-                      <a href="post.html#comments">5 comments</a>
+                        {% if not object.public %}
+                            <i class="icon-lock"></i><a href="#">доступно только зарегистрированным пользователям</a>
+                        {% endif %}
+                        <i class="icon-comments"></i>
+                        <a href="{{object.get_absolute_url}}#comments">комментарии ({{ object.active_comments.count }})</a>
                     </div>
                   </div>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
+                    {{ object.preview|safe }}
                   </p>
-                  <a class="more-link pull-right" href="post.html">
-                    <strong>
-                      
-                    </strong>
-                    Редактировать
-                  </a>
+                  <a href="{{ object.get_absolute_url }}" class="more-link blue-underline">Подробнее</a>
                 </div>
                 {% endfor %}
                 
