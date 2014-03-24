@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row-fluid divider-line"></div>
+
+    {% for object in object_list %}
+        {{object}}
+    {% endfor %}
+
+{% endblock %}

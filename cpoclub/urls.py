@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^account/', include('account.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
+    url(r'^members/', include('members.urls')),
 
     #url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     #url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
