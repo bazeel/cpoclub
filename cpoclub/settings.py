@@ -47,6 +47,8 @@ INSTALLED_APPS = (
     'core',
     'blog',
     'members',
+    'events',
+    'library',
 )
 
 MIDDLEWARE_CLASSES = (

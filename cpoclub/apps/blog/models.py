@@ -8,8 +8,8 @@ from tinymce import models as tinymce_models
 class Record(models.Model):
 
     user = models.ForeignKey(User, verbose_name=_('user'), related_name='records') 
-    active = models.BooleanField(_('active'), default=False)
-    public = models.BooleanField(_('public'), default=False)
+    active = models.BooleanField(_('active'), default=True)
+    public = models.BooleanField(_('public'), default=True)
     title = models.CharField(_('title'), max_length=255)
     preview = models.TextField(_('preview'), blank=True)
     content = tinymce_models.HTMLField(_('content'))
