@@ -24,3 +24,6 @@ class Doc(models.Model):
         ordering = ['title']
         verbose_name = _('document')
         verbose_name_plural = _('documents')
+
+    def __unicode__(self):
+        return self.title

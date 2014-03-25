@@ -146,7 +146,7 @@
                             navigationStyle:"round-old",
                             
                             touchenabled:"on",
-                            onHoverStop:"off",
+                            onHoverStop:"on",
                             
                             navigationHAlign:"center",
                             navigationVAlign:"bottom",
@@ -196,26 +196,26 @@
 
                      <li class="span3">
                          <div class="round-box round-medium ">
-                            <a href="/?oxy_service=web-applications" class="box-inner">
+                            <a href="/club/" class="box-inner">
                                 <img width="300" height="300" src="/static/cpoclub/img/gray-300x300.png" class="img-circle wp-post-image" alt="Web Applications">
                             </a>
                             <i class="ico-logo"></i>
                         </div>
-                        <a href="/?oxy_service=web-applications"><h3 class="text-center text-red">Клуб</h3></a>
+                        <a href="/club/"><h3 class="text-center text-red">Клуб</h3></a>
                         <p></p><p>«Клуб закупщиков» - это современная платформа для делового общения и обмена опытом профессионалов в области закупок.</p>
-                        <a href="#" class="blue-underline">Подробнее</a>
+                        <a href="/club/" class="red-underline">Подробнее</a>
                      </li>
 
                      <li class="span3">
                          <div class="round-box round-medium ">
-                             <a href="#" class="box-inner">
+                             <a href="{% url 'user_list' %}" class="box-inner">
                                  <img width="300" height="300" src="/static/cpoclub/img/gray-300x300.png" class="img-circle wp-post-image" alt="Web Applications">
                              </a>
                              <i class="ico-members"></i>
                          </div>
-                         <a href="#"><h3 class="text-center text-blue">Участники</h3></a>
+                         <a href="{% url 'user_list' %}"><h3 class="text-center text-blue">Участники</h3></a>
                          <p></p><p>Участники Клуба – менеджеры по закупкам ведущих российских компаний, творческие, целеустремлённые люди, стремящиеся к собственному профессиональному развитию.</p>
-                         <p></p><a href="#" class="red-underline">Подробнее</a>
+                         <p></p><a href="{% url 'user_list' %}" class="blue-underline">Подробнее</a>
                      </li>
 
                      <li class="span3">
@@ -227,19 +227,19 @@
                          </div>
                          <a href="#"><h3 class="text-center text-red">События</h3></a>
                          <p></p><p>Клуб закупщиков регулярно проводит экспертные круглые столы и конференции, посвящённые насущным проблемам и главным тенденциям в области корпоративных закупок.</p>
-                         <a href="#" class="blue-underline">Подробнее</a>
+                         <a href="#" class="red-underline">Подробнее</a>
                      </li>
 
                      <li class="span3">
                          <div class="round-box round-medium ">
-                             <a href="#" class="box-inner">
+                             <a href="{% url 'doc_list' %}" class="box-inner">
                                  <img width="300" height="300" src="/static/cpoclub/img/gray-300x300.png" class="img-circle wp-post-image" alt="Web Applications">
                              </a>
                              <i class="ico-piechart"></i>
                          </div>
-                         <a href="#"><h3 class="text-center text-blue">Аналитика</h3></a>
+                         <a href="{% url 'doc_list' %}"><h3 class="text-center text-blue">Аналитика</h3></a>
                          <p></p><p>В распоряжении членов Клуба находится обширная библиотека эксклюзивных аналитических материалов, посвящённых закупочной деятельности.</p>
-                         <a href="#" class="red-underline">Подробнее</a>
+                         <a href="{% url 'doc_list' %}" class="blue-underline">Подробнее</a>
                      </li>
 
 

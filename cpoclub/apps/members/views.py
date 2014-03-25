@@ -13,7 +13,7 @@ from blog.models import Record
 class MembersList(ListView):
 
     model = User
-    paginate_by = 10
+    paginate_by = 9
     queryset = User.objects.filter(is_active=True)
     template_name='members/user_list.html'
 

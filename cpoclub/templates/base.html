@@ -10,15 +10,13 @@
         <title>Клуб закупщиков</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link rel="icon" type="image/png" href="/static/cpoclub/img/favicon.png" />
-        <!--link href="/static/images/bundled/favicon.ico" rel="shortcut icon" -->
-        <meta name="google-site-verification" content="" />
         <link rel="apple-touch-icon" href="/static/images/bundled/apple-touch-icon-57x57-precomposed.png"  />        <link rel="apple-touch-icon" href="/static/images/bundled/apple-touch-icon-114x114-precomposed.png" sizes="114x114" />        <link rel="apple-touch-icon" href="/static/images/bundled/apple-touch-icon-72x72-precomposed.png" sizes="72x72" />   
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
           <script src="/static/javascripts/PIE.js"></script>
         <![endif]-->
 
-        <link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext%2Ccyrillic%2Ccyrillic-ext&#038;ver=3.8.1' type='text/css' media='all' />
+        
         <link rel='stylesheet' id='dashicons-css'  href='/static/css/dashicons.min.css?ver=3.8.1' type='text/css' media='all' />
         <link rel='stylesheet' id='bootstrap-css'  href='/static/stylesheets/bootstrap.css?ver=3.8.1' type='text/css' media='all' />
         <link rel='stylesheet' id='responsive-css'  href='/static/stylesheets/responsive.css?ver=3.8.1' type='text/css' media='all' />
@@ -64,6 +62,7 @@
                             {% url 'record_list' as blog_url %}
                             {% url 'account_login' as account_login %}
                             {% url 'user_list' as user_list %}
+                            {% url 'doc_list' as library %}
                             <nav class="nav-collapse collapse" role="navigation">
                             <div class="menu-main-menu-container">
                                 <ul id="menu-main-menu" class="nav pull-right ">
@@ -72,7 +71,7 @@
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if blog_url in request.path %}active{% endif %}"><a href="{{blog_url}}">Блог</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page {% if user_list in request.path %}active{% endif %}"><a href="{{user_list}}">Участники</a></li>
                                     <li  class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">События</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">Библиотека</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page {% if library == request.path %}active{% endif %}"><a href="{{ library }}">Библиотека</a></li>
                                     {% if not user.is_authenticated %}
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if request.path == account_login %}active{% endif %}"><a href="{% url 'account_login' %}" class="sign-in">Вход</a></li>
                                     {% else %}                                
@@ -163,7 +162,7 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="{{ library }}">
                   Библиотека
                 </a>
               </li>

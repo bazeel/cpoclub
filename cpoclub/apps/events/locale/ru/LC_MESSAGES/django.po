@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-25 17:03+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: models.py:8
+msgid "date"
+msgstr "дата"
+
+#: models.py:9
+msgid "city"
+msgstr "город"
+
+#: models.py:10
+msgid "address"
+msgstr "адрес"
+
+#: models.py:11
+msgid "coordinate"
+msgstr "координаты"
+
+#: models.py:14
+msgid "active"
+msgstr ""
+
+#: models.py:15
+msgid "preview"
+msgstr ""
+
+#: models.py:16
+msgid "content"
+msgstr ""
+
+#: models.py:21 models.py:26
+msgid "event"
+msgstr "событие"
+
+#: models.py:22
+msgid "events"
+msgstr "события"
+
+#: models.py:27 models.py:30
+msgid "image"
+msgstr "изображение"
+
+#: models.py:31
+msgid "images"
+msgstr "изображения"

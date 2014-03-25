@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row-fluid divider-line"></div>
+
+    <section class="section section-padded">
+    <div class="container-fluid">
+        <div class="row-fluid">
+    
+            <div class="span9">
+                
+                {% for object in object_list %}
+                    <article id="post-554" class="post-554 post type-post status-publish format-standard hentry category-timeline row-fluid">
+                        <div class="span2 post-info">
+                        <div class="round-box box-small">
+                            <a class="box-inner" href="{{ object.file.url }}"><img alt="" src="/static/cpoclub/img/download-arrow.png" class="img-circle  avatar-300 photo" height="78" width="78"></a>    </div>
+                        <h5 class="text-center regular">
+                            <a href="{{ object.file.url }}" class="blue-underline">СКАЧАТЬ</a>    
+                        </h5>
+                    </div>
+                        <div class="span10 post-body lib-item">
+                            <div class="post-head">
+                                <h2 class="small-screen-center"><span class="regular">{{ object.title }}</span></h2>
+                            </div>
+                            <div class="entry-content">
+                                <p>{{ object.preview|safe }}</p>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            
+                
+                {% if page_obj.has_other_pages %}
+                <div class="pagination pagination-small pagination-centered">
+                    <ul>
+                    {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}&category={{request.GET.category}}"><i class="icon-angle-left"></i></a></li>
+                    {% else %}
+                        <li class="disabled"><a href="#"><i class="icon-angle-left"></i></a></li>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                        {% ifequal num page_obj.number %}
+                            <li class="active"><a href="#">{{ num }}<span class="sr-only"></span></a></li>
+                        {% else %}
+                            <li><a href="?page={{ num }}&category={{request.GET.category}}">{{ num }}</a></li>
+                        {% endifequal %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}&category={{request.GET.category}}"><i class="icon-angle-right"></i></a></li>
+                    {% else %}
+                        <li class="disabled"><a href="#"><i class="icon-angle-right"></i></a></li>
+                    {% endif %}
+                    <ul>
+                </div>
+                {% endif %}
+                        
+            </div>
+            
+            <aside class="span3 sidebar">
+                <div id="categories-2" class="sidebar-widget  widget_categories">
+                    <h3 class="sidebar-header regular">Разделы</h3>     
+                    <ul>
+                        <li class="cat-item cat-item-2"><a class="blue-underline" href="{% url 'doc_list' %}">Все</a></li>
+                        {% for category in categories %}
+                            <li class="cat-item cat-item-2"><a class="blue-underline" href="{% url 'doc_list' %}?category={{ category.pk }}">{{ category.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+{% include "sponsors.html" %}
+
+{% endblock %}
