@@ -6,6 +6,7 @@ from django.views.generic import ListView
 from account.models import UserProfile
 from django.contrib.auth.models import User
 
+from blog.forms import RecAddForm
 from blog.models import Record
 
 
@@ -46,5 +47,21 @@ def user_rec_add(request, pk):
     if pk != u.pk:
         return HttpResponseRedirect(reverse('user_detail', kwargs={'pk':pk}))
 
+    form =  RecAddForm()
+    success = False
+    if request.method == 'POST':
+        form = RecAddForm(data=request.POST)
+        if form.is_valid():
+            d = form.cleaned_data
+            new_rec = Record(
+                user=u,
+                active = True,
+                public = d['public'],
+                title = d['title'],
+                content = d['content'])
+            new_rec.save();
+            success = True
+            form =  RecAddForm()
+
     return render(request, 'members/user_rec_add.html', {
-        'object': u})
+        'form':form, 'success':success})

@@ -1,4 +1,4 @@
-{% load flatpages %}
+{% load thumbnail %}
 <!DOCTYPE html>
 <!--[if IE 8 ]> <html lang="ru-RU" class="ie8"> <![endif]-->
 <!--[if IE 9 ]> <html lang="ru-RU" class="ie9"> <![endif]-->
@@ -76,17 +76,27 @@
                                     {% if not user.is_authenticated %}
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if request.path == account_login %}active{% endif %}"><a href="{% url 'account_login' %}" class="sign-in">Вход</a></li>
                                     {% else %}                                
-                                        <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-14"><a class="dropdown-toggle username" data-toggle="dropdown" data-target="#" href="http://themes.oxygenna.com/smartbox/"><span>
-                                            {% if user.first_name %}
-                                                {{user.first_name|capfirst}}
-                                            {% else %}
-                                                {{user.username}}
-                                            {% endif %}
-                                        </span></a>
+                                        <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-14 round-box">
+                                            <a class="dropdown-toggle username" data-toggle="dropdown" data-target="#" href="">
+                                                {% if user.profile.avatar %}
+                                                    <img alt="" src="{% thumbnail user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="40px" width="40px">
+                                                {% else %}
+                                                    <img alt="" src="/static/images/avatar.png" class="img-circle  avatar-300 photo" height="40px" width="40px">
+                                                {% endif %}
+                                                {% comment %}
+                                                <!--span>
+                                                    {% if user.first_name %}
+                                                        {{user.first_name|capfirst}}
+                                                    {% else %}
+                                                        {{user.username}}
+                                                    {% endif %}
+                                                </span-->
+                                                {% endcomment %}
+                                            </a>
                                             <ul class="dropdown-menu">
-                                                <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="">Мой профиль</a></li>
-                                                <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="">Мои записи</a></li>
-                                                <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="">Добавить запись</a></li>
+                                                <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="{% url 'user_detail' user.pk %}">Мой профиль</a></li>
+                                                <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="{% url 'user_rec_list' user.pk %}">Мои записи</a></li>
+                                                <li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="{% url 'user_rec_add' user.pk %}">Добавить запись</a></li>
                                                 <li id="menu-item-766" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-766"><a href="{% url 'account_logout' %}">Выход</a></li>
                                           </ul>
                                       </li>
@@ -109,7 +119,7 @@
     <div class="wrapper wrapper-transparent">
       <div class="container-fluid">
         <div class="row-fluid">
-          <div class="span6 small-screen-center">
+          <div class="span5 small-screen-center">
             <h3>
               Клуб Закупщиков
               <!--span class="light">
@@ -124,7 +134,7 @@
               © 2014
             </p>
           </div>
-          <div class="span6">
+          <div class="span7">
           
             <ul class="unstyled inline text-right small-screen-center footer-menu">
               <li>

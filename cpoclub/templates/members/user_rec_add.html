@@ -11,8 +11,8 @@
 
                                 <div class="round-box box-big profile-img">
                                     <span class="box-inner">
-                                        {% if object.profile.avatar %}
-                                            <img alt="" src="{% thumbnail object.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
+                                        {% if user.profile.avatar %}
+                                            <img alt="" src="{% thumbnail user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
                                         {% else %}
                                             <img alt="" src="/static/images/avatar.png" class="img-circle  avatar-300 photo" height="300" width="300">
                                         {% endif %}
@@ -22,41 +22,51 @@
                             
                                 <div id="meta-2" class="sidebar-widget  widget_meta">           
                                     <ul class="profile-menu">
-                                        {% if object.pk == user.pk %}
-                                            <li><a href="{% url 'user_detail' object.pk %}" class="blue-underline">Мой профиль</a></li>
-                                            <li><a href="{% url 'user_rec_list' object.pk %}" class="blue-underline">Мои записи</a></li>
-                                            <li><a href="{% url 'user_rec_add' object.pk %}" class="blue-underline">Добавить запись</a></li>
-                                        {% else %}
-                                            <li><a href="{% url 'user_detail' object.pk %}" class="blue-underline">Профиль участника</a></li>
-                                            <li><a href="{% url 'user_rec_list' object.pk %}" class="blue-underline">Записи участника</a></li>
-                                        {% endif %}
+                                            <li><a href="{% url 'user_detail' user.pk %}" class="blue-underline">Мой профиль</a></li>
+                                            <li><a href="{% url 'user_rec_list' user.pk %}" class="blue-underline">Мои записи</a></li>
+                                            <li><a href="{% url 'user_rec_add' user.pk %}" class="blue-underline">Добавить запись</a></li>
                                     </ul>
                                 </div>            
                             </aside>
                             
         <div class="span7">
-            
+                    {% if success%}
+                        <div class="alert alert-success" style="margin-left:10px;">
+                            <button class="close" data-dismiss="alert" type="button">×</button>
+                            <strong>Поздравляем</strong>
+                            Запись успешно добавлена!
+                        </div>
+                    {% elif form.errors %}
+                        <div class="alert alert-danger" style="margin-left:10px;">
+                            <!--button class="close" data-dismiss="alert" type="button">×</button-->
+                            <strong>Ошибка!</strong>
+                            Все поля обязательные для заполнения
+                        </div>
+                    {% endif %}
+
             <div class="span9 profile-posts">
                 <form action="{% url 'user_rec_add' user.pk %}" class="rec-add-form" method="post" >
                     <fieldset>
                         {% csrf_token %}
 
                         <div class="control-group ">
-                            <input class="span12 " name="title" placeholder="Заголовок" type="text">
+                            {{ form.title }}
                         </div>
 
                         <div class="control-group ">
-                            <input type="checkbox" name="public" value="True" checked>Отображать для незарегистрированных пользователей
+                            {{ form.public }} Отображать для незарегистрированных пользователей
                         </div>
 
 
-                        <div class="control-group message"><div class="controls"><textarea id="comment" name="content" placeholder="Ваша запись" class="input-xxlarge" rows="20"></textarea></div></div>                                                
+                        <div class="control-group message"><div class="controls">
+                            {{ form.content }}
+                        </div></div>                                                
                         <div class="control-group">
                             <div class="controls small-screen-center">
                                 <button name="submit" type="submit" class="btn btn-primary" id="submit" value="Add comment">Отправить</button>
                                 <input type="hidden" name="comment_post_ID" value="554" id="comment_post_ID">
-                            <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                        </div>
+                                <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                            </div>
                         </div>
 
                     </fieldset>

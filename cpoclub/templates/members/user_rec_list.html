@@ -53,7 +53,12 @@
                     </div>
                   </div>
                   <p>
-                    {{ object.preview|safe }}
+                    {% if object.preview %}
+                        {{ object.preview|safe }}
+                    {% else %}
+                        {{ object.content|truncatewords_html:45|safe}}
+                    {% endif %}
+                        
                   </p>
                   <a href="{{ object.get_absolute_url }}" class="more-link blue-underline">Подробнее</a>
                 </div>

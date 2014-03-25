@@ -11,7 +11,7 @@ class Record(models.Model):
     active = models.BooleanField(_('active'), default=False)
     public = models.BooleanField(_('public'), default=False)
     title = models.CharField(_('title'), max_length=255)
-    preview = models.TextField(_('preview'))
+    preview = models.TextField(_('preview'), blank=True)
     content = tinymce_models.HTMLField(_('content'))
     date = models.DateField(_('date'),auto_now_add=True, blank=True)
 

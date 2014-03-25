@@ -15,12 +15,11 @@
                         </figure>
                     </div>
                 </div>
-            </section-->    
+            </section-->
 
 <section class="section section-padded">
     <div class="container-fluid">
         <div class="row-fluid">
-            
 
 <div class="span9">
 
@@ -56,7 +55,13 @@
                     </div>
                 </div>
                 <div class="entry-content">
-                    <p>{{ object.preview|safe }}</p>
+                    <p>
+                        {% if object.preview %}
+                            {{ object.preview|safe }}
+                        {% else %}
+                            {{ object.content|truncatewords_html:45|safe}}
+                        {% endif %}
+                    </p>
                     <p>
                         {% if object.public %}
                             <a href="{{object.get_absolute_url}}" class="more-link blue-underline">Подробнее</a>
@@ -101,14 +106,13 @@
     
 </div>
 
-        <aside class="span3 sidebar">
+    <aside class="span3 sidebar">
 
-            {% latest_rec_list %}
+        {% latest_rec_list %}
 
-            {% rec_archive %}
+        {% rec_archive %}
 
-        </aside>
-    
+    </aside>
     
         </div>
     </div>
