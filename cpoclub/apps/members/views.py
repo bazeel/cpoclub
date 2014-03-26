@@ -11,7 +11,6 @@ from blog.models import Record
 
 
 class MembersList(ListView):
-
     model = User
     paginate_by = 9
     queryset = User.objects.filter(is_active=True)
@@ -19,9 +18,7 @@ class MembersList(ListView):
 
 
 class UserRecList(ListView):
-
     paginate_by = 10
-
 
     def get_template_names(self):
         template_name = 'members/user_rec_list.html'
@@ -41,7 +38,6 @@ class UserRecList(ListView):
         return context
 
 def user_rec_add(request, pk):
-
     pk = int(pk)
     u = request.user
     if pk != u.pk:

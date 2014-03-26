@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block content %}
+<div class="row-fluid divider-line"></div>
+
+<article id="post-285" class="post-285 page type-page status-publish hentry">
+    <section class="section section-padded ">
+        <div class="container-fluid">
+            <!--div class="section-header">
+                <h1>Ближайшие <span class="light">события</span></h1>
+            </div-->
+            
+<!--
+get location json
+http://geocode-maps.yandex.ru/1.x/?format=json&geocode=Тверская 6&results=5
+
+get map image
+http://static-maps.yandex.ru/1.x/?ll=29.717833,60.013785&z=15&l=map&size=250,167&pt=29.717833,60.013785,pm2lbm
+-->
+            
+            <div class="row-fluid">
+                <div class="row-fluid">
+                    <ul class="thumbnails portfolio">
+                        {% for object in object_list %}
+                        <li class=" span3 filter-forest">
+                            <figure class="round-box box-big no-rounded">
+                                <a class="box-inner fancybox-media" href="/events/ymap/?center=55.76,37.64&preview=при%20ываыва&address=qwe"><img width="250px" height="167px" src="http://static-maps.yandex.ru/1.x/?ll=29.717833,60.013785&amp;z=15&amp;l=map&amp;size=250,167&amp;pt=29.717833,60.013785,pm2lbm" class="img-circle wp-post-image" alt="Suspendisse in urna">
+                                    <i class="plus-icon" style="top: -100px; "></i>
+                                </a>
+                                <figcaption><h4><a href="{{object.get_absolute_url}}">{{object.date|date:"j E"}}, {{object.city}}</a></h4><p>{{object.preview}}</p></figcaption>
+                                <a href="{{object.get_absolute_url}}" class="blue-underline">Подробнее</a>
+                            </figure>
+                        </li>
+                        {% endfor %}
+                        <li class=" span3 filter-lake"><figure class="round-box box-big no-rounded"><a href="http://vimeo.com/54680077" class="box-inner fancybox-media"><img width="250px" height="167px" src="/static/cpoclub/img/no-img-250x167.png" class="img-circle wp-post-image" alt="Maecenas eu placerat"><i class="plus-icon" style="top: -100px; "></i></a><figcaption><h4><a href="http://themes.oxygenna.com/smartbox/portfolio/vimeo-video/">Maecenas eu placerat</a></h4><p>Fusce sem libero, lacinia vulputate interdum non, porttitor non quam....</p></figcaption></figure></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+            {% if page_obj.has_other_pages %}
+            <div class="pagination pagination-small pagination-centered">
+                <ul>
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}"><i class="icon-angle-left"></i></a></li>
+                {% else %}
+                    <li class="disabled"><a href="#"><i class="icon-angle-left"></i></a></li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% ifequal num page_obj.number %}
+                        <li class="active"><a href="#">{{ num }}<span class="sr-only"></span></a></li>
+                    {% else %}
+                        <li><a href="?page={{ num }}">{{ num }}</a></li>
+                    {% endifequal %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}"><i class="icon-angle-right"></i></a></li>
+                {% else %}
+                    <li class="disabled"><a href="#"><i class="icon-angle-right"></i></a></li>
+                {% endif %}
+                <ul>
+            </div>
+            {% endif %}
+        
+    </section>
+
+   {% include "sponsors.html" %}
+ 
+</article>
+
+{% endblock %}

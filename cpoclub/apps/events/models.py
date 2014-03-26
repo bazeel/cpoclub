@@ -15,6 +15,9 @@ class Event(models.Model):
     preview = models.TextField(_('preview'), blank=True)
     content = tinymce_models.HTMLField(_('content'))
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('event_detail', (), {'pk': self.pk})
 
     class Meta:
         ordering = ['-date']

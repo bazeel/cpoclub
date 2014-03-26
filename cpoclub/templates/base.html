@@ -63,6 +63,7 @@
                             {% url 'account_login' as account_login %}
                             {% url 'user_list' as user_list %}
                             {% url 'doc_list' as library %}
+                            {% url 'event_list' as events %}
                             <nav class="nav-collapse collapse" role="navigation">
                             <div class="menu-main-menu-container">
                                 <ul id="menu-main-menu" class="nav pull-right ">
@@ -70,7 +71,7 @@
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page {% if request.path == '/club/' %}active{% endif %}"><a href="/club/">Клуб</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if blog_url in request.path %}active{% endif %}"><a href="{{blog_url}}">Блог</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page {% if user_list in request.path %}active{% endif %}"><a href="{{user_list}}">Участники</a></li>
-                                    <li  class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">События</a></li>
+                                    <li  class="menu-item menu-item-type-post_type menu-item-object-page {% if events in request.path %}active{% endif %}"><a href="{{events}}">События</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page {% if library == request.path %}active{% endif %}"><a href="{{ library }}">Библиотека</a></li>
                                     {% if not user.is_authenticated %}
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if request.path == account_login %}active{% endif %}"><a href="{% url 'account_login' %}" class="sign-in">Вход</a></li>
@@ -157,12 +158,12 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="{{events}}">
                   События
                 </a>
               </li>
               <li>
-                <a href="{{ library }}">
+                <a href="{{library}}">
                   Библиотека
                 </a>
               </li>

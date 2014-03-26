@@ -7,7 +7,7 @@ class ImagesInline(admin.StackedInline):
 
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ['date', 'city', 'address', 'active']
+    list_display = ['date', 'city', 'address', 'preview', 'active']
     list_editable = ['active']
     search_fields = ['city', 'date', 'address']
     inlines = [ImagesInline]

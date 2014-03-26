@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^blog/', include('blog.urls')),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^members/', include('members.urls')),
+    url(r'^events/', include('events.urls')),
     url(r'^library/', include('library.urls')),
 
     #url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
