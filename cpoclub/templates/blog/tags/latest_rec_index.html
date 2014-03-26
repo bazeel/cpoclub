@@ -27,7 +27,13 @@
                                 <h3 class="regular">
                                     <a href="{{ object.get_absolute_url }}">{{ object.title }}</a>
                                 </h3>
-                                <p>{{ object.preview|truncatewords:15 }}</p>
+                                <p>
+                                    {% if object.preview %}
+                                        {{ object.preview|truncatewords:10|safe }}
+                                    {% else %}
+                                        {{ object.content|truncatewords_html:10|safe}}
+                                    {% endif %}
+                                </p>
                             </div>
                         </div>
                     </li>
