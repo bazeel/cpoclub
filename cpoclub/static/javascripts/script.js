@@ -151,12 +151,18 @@ function fancyboxInit() {
     $('.fancybox-image').fancybox({
         padding: 1,
         type: "image",
-        helpers : {
-            title : {
-                type : 'over'
-            }
-        }
     });
+
+    $('.fancybox-iframe-map').fancybox({
+        padding: 0,
+        autoSize: false,
+        width: 736,
+        height: 376,
+        type: "iframe",
+        openEffect  : 'none',
+        closeEffect : 'none',
+    });
+
     $('.fancybox-media').fancybox({
         padding: 1,
         openEffect  : 'none',

@@ -31,7 +31,7 @@ function transformToAssocArray( prmstr ) {
 }
 
 var params = getSearchParameters();
-var center = params.center.split(',');
+var center = params.center.split(',').reverse();
 var preview = decodeURI(params.preview);
 var address = decodeURI(params.address);
 

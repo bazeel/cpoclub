@@ -25,15 +25,21 @@ http://static-maps.yandex.ru/1.x/?ll=29.717833,60.013785&z=15&l=map&size=250,167
                         {% for object in object_list %}
                         <li class=" span3 filter-forest">
                             <figure class="round-box box-big no-rounded">
-                                <a class="box-inner fancybox-media" href="/events/ymap/?center=55.76,37.64&preview=при%20ываыва&address=qwe"><img width="250px" height="167px" src="http://static-maps.yandex.ru/1.x/?ll=29.717833,60.013785&amp;z=15&amp;l=map&amp;size=250,167&amp;pt=29.717833,60.013785,pm2lbm" class="img-circle wp-post-image" alt="Suspendisse in urna">
-                                    <i class="plus-icon" style="top: -100px; "></i>
-                                </a>
+                                {% if object.images.count == 0 %}
+                                    <a class="box-inner fancybox-iframe-map" href="/events/ymap/?center={{ object.coordinate }}&preview={{ object.preview }}&address={{ object.address }}"><img width="250px" height="167px" src="http://static-maps.yandex.ru/1.x/?ll={{ object.coordinate }}&amp;z=15&amp;l=map&amp;size=250,167&amp;pt={{ object.coordinate }},pm2lbm" class="img-circle wp-post-image" ><i class="plus-icon" style="top: -100px; "></i></a>
+                                {% else %}
+                                    {% for image_obj in object.images.all %}
+                                        {% if forloop.first %}
+                                            <a class="box-inner fancybox-image" href="{% thumbnail image_obj.image 720x480 crop %}"><img width="250px" height="167px" src="{% thumbnail image_obj.image 250x167 crop %}" class="img-circle wp-post-image" ><i class="plus-icon" style="top: -100px; "></i></a>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                {% endif %}
                                 <figcaption><h4><a href="{{object.get_absolute_url}}">{{object.date|date:"j E"}}, {{object.city}}</a></h4><p>{{object.preview}}</p></figcaption>
                                 <a href="{{object.get_absolute_url}}" class="blue-underline">Подробнее</a>
                             </figure>
                         </li>
                         {% endfor %}
-                        <li class=" span3 filter-lake"><figure class="round-box box-big no-rounded"><a href="http://vimeo.com/54680077" class="box-inner fancybox-media"><img width="250px" height="167px" src="/static/cpoclub/img/no-img-250x167.png" class="img-circle wp-post-image" alt="Maecenas eu placerat"><i class="plus-icon" style="top: -100px; "></i></a><figcaption><h4><a href="http://themes.oxygenna.com/smartbox/portfolio/vimeo-video/">Maecenas eu placerat</a></h4><p>Fusce sem libero, lacinia vulputate interdum non, porttitor non quam....</p></figcaption></figure></li>
                     </ul>
                 </div>
             </div>
