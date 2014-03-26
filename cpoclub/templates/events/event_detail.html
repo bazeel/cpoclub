@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block content %}
+<div class="row-fluid divider-line"></div>
+
+<section class="section section-padded">
+    <div class="container-fluid">
+        <div class="row-fluid">
+    
+            <div class="span9">
+                
+            
+                <article id="post-554" class="post-554 post type-post status-publish format-standard hentry category-timeline row-fluid">
+                <div class="span2 post-info">
+
+                </div>
+                    <div class="span10 post-body lib-item">
+                        <div class="post-head">
+                            <h2 class="small-screen-center"><span class="regular">{{ object.preview|safe }}</span></h2>
+                        </div>
+
+                        <div class="post-extras">
+                                <i class="icon-calendar"></i> {{ object.date|date:"j N Y" }}
+                        </div>
+
+                        <div class="entry-content">
+
+                        <figure><iframe style="border:none; width:682px; height:366px;" src="{% url 'event_ymap' %}?center={{ object.coordinate }}&preview={{ object.preview }}&address={{ object.address }}"></iframe></figure>
+                        
+                        {% if object.images.count > 0 %}
+                            <ul class="thumbnails">
+                                {% for image_obj in object.images.all %}
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="fancybox" rel="gallery" href="{% thumbnail image_obj.image 720x480 crop %}"><img src="{% thumbnail image_obj.image 300x150 crop %}"></a>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                            {{ object.content|safe }}
+
+                            <p><a href="{% url 'event_list' %}" class="more-link blue-underline">Все события</a></p>
+                        </div>
+                    </div>
+                </article>
+                        
+            </div>
+
+        </div>
+    </div>
+</section>
+{% include "sponsors.html" %}
+{% endblock %}

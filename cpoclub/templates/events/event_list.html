@@ -26,7 +26,7 @@ http://static-maps.yandex.ru/1.x/?ll=29.717833,60.013785&z=15&l=map&size=250,167
                         <li class=" span3 filter-forest">
                             <figure class="round-box box-big no-rounded">
                                 {% if object.images.count == 0 %}
-                                    <a class="box-inner fancybox-iframe-map" href="/events/ymap/?center={{ object.coordinate }}&preview={{ object.preview }}&address={{ object.address }}"><img width="250px" height="167px" src="http://static-maps.yandex.ru/1.x/?ll={{ object.coordinate }}&amp;z=15&amp;l=map&amp;size=250,167&amp;pt={{ object.coordinate }},pm2lbm" class="img-circle wp-post-image" ><i class="plus-icon" style="top: -100px; "></i></a>
+                                    <a class="box-inner fancybox-iframe-map" href="{% url 'event_ymap' %}?center={{ object.coordinate }}&preview={{ object.preview }}&address={{ object.address }}"><img width="250px" height="167px" src="http://static-maps.yandex.ru/1.x/?ll={{ object.coordinate }}&amp;z=15&amp;l=map&amp;size=250,167&amp;pt={{ object.coordinate }},pm2lbm" class="img-circle wp-post-image" ><i class="plus-icon" style="top: -100px; "></i></a>
                                 {% else %}
                                     {% for image_obj in object.images.all %}
                                         {% if forloop.first %}

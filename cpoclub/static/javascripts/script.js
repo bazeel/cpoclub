@@ -156,8 +156,8 @@ function fancyboxInit() {
     $('.fancybox-iframe-map').fancybox({
         padding: 0,
         autoSize: false,
-        width: 736,
-        height: 376,
+        width: 686,
+        height: 366,
         type: "iframe",
         openEffect  : 'none',
         closeEffect : 'none',
