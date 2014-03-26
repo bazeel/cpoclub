@@ -6,12 +6,11 @@ from .models import Record, Comment
 
 class CommentInline(admin.StackedInline):
     model = Comment
-    
+
 
 class RecordAdmin(admin.ModelAdmin):
-
     list_display = ['title', 'record__user', 'date', 'active', 'public']
-    list_editable = ['active', 'public']
+    list_editable = ['active', 'public', 'date']
     search_fields = ['title', 'record__user']
     inlines = [CommentInline]
 
@@ -21,7 +20,6 @@ class RecordAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-
     list_display = ['__unicode__', 'comment__user', 'date', 'active', 'comment__record' ]
     list_editable = ['active']
     search_fields = ['comment', 'comment__user', 'comment__record']

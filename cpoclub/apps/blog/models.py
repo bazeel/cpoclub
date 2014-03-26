@@ -8,12 +8,13 @@ from tinymce import models as tinymce_models
 class Record(models.Model):
 
     user = models.ForeignKey(User, verbose_name=_('user'), related_name='records') 
+    date = models.DateField(_('date'), auto_now_add=True)
     active = models.BooleanField(_('active'), default=True)
     public = models.BooleanField(_('public'), default=True)
     title = models.CharField(_('title'), max_length=255)
     preview = models.TextField(_('preview'), blank=True)
     content = tinymce_models.HTMLField(_('content'))
-    date = models.DateField(_('date'),auto_now_add=True, blank=True)
+    date.editable=True
 
     class Meta:
         ordering = ['-date']

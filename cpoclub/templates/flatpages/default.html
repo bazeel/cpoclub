@@ -1,14 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="row-fluid divider-line"></div>
 
-    <article id="post-294" class="post-294 page type-page status-publish hentry">
+<div class="row-fluid divider-line"></div>
 
-         <section class="section section-padded "><div class="container-fluid"><div class="section-header"><h1><span class="light">{{ flatpage.title|safe }}</span></h1></div><div class="row-fluid">
-        {{ flatpage.content|safe }}
-    </article>
+<section class="section section-padded">
+    <div class="container-fluid">
+        <div class="row-fluid">
+    
+            <div class="span9">
+                
+            
+                <article class=" post type-post status-publish format-standard hentry category-timeline row-fluid">
+                    <div class="span2 post-info"></div>
+                    <div class="span10 post-body lib-item">
+                        <div class="post-head">
+                            <h2 class="small-screen-center"><span class="regular">{{ flatpage.title|safe }}</span></h2>
+                        </div>
 
-    {% include "sponsors.html" %}
+                        <div class="entry-content">
+
+                            {{ flatpage.content|safe }}
+
+                            <p><a href="{% url 'index' %}" class="more-link blue-underline">На главную</a></p>
+                        </div>
+                    </div>
+                </article>
+                        
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% include "sponsors.html" %}
 
 {% endblock %}
