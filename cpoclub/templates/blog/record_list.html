@@ -28,7 +28,7 @@
     {% for object in object_list %}
     <article id="post-385" class="post-385 post type-post status-publish format-standard sticky hentry category-blog category-timeline tag-boating tag-mountains tag-recreation tag-sports row-fluid">
             <div class="span2 post-info">
-            <div class="round-box box-small"><a class="box-inner" href="#">
+            <div class="round-box box-small"><a class="box-inner" href="{% url 'user_detail' object.user.pk %}">
                 {% if object.user.profile.avatar %}
                     <img alt="" src="{% thumbnail object.user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
                 {% else %}

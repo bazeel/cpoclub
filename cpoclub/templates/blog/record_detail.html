@@ -12,7 +12,7 @@
                 <article class="post type-post status-publish format-standard hentry category-timeline row-fluid blog-detail">
             <div class="span2 post-info">
                 <div class="round-box box-small">
-                    <a class="box-inner" href="#">
+                    <a class="box-inner" href="{% url 'user_detail' object.user.pk %}">
                     {% if object.user.profile.avatar %}
                         <img alt="" src="{% thumbnail object.user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
                     {% else %}
@@ -48,7 +48,7 @@
             {% for comment in object.active_comments %}
                 <div class="comment byuser comment-author-christos bypostauthor even thread-even depth-1 media media-comment">
                     <div class="round-box box-mini pull-left">
-                        <a class="box-inner" href="">
+                        <a class="box-inner" href="{% url 'user_detail' comment.user.pk %}">
                             {% if comment.user.profile.avatar %}
                                 <img alt="" src="{% thumbnail comment.user.profile.avatar 300x300 crop %}" class="img-circle  avatar-300 photo" height="300" width="300">
                             {% else %}
