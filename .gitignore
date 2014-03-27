@@ -3,5 +3,6 @@ lib/
 local
 include/
 cpoclub/public/
+dump/
 *.pyc
 ignored_settings.py

@@ -21,7 +21,7 @@ class Doc(models.Model):
     file = models.FileField(_('file'), upload_to='library')
 
     class Meta:
-        ordering = ['title']
+        ordering = ['-pk']
         verbose_name = _('document')
         verbose_name_plural = _('documents')
 
