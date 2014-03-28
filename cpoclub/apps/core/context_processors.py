@@ -1,4 +1,5 @@
+from datetime import datetime
 
-#def user(request):
-#    user = request.user
-#    return {'user':user}
+def datetime_now(request):
+    now = datetime.now()
+    return {'now':now}

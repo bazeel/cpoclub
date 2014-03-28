@@ -4,7 +4,7 @@ import sys
 import django.conf.global_settings as DEFAULT_SETTINGS
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
-    #'core.context_processors.user',
+    'core.context_processors.datetime_now',
     'django.core.context_processors.request',
 )
 
@@ -102,7 +102,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-GRAPPELLI_ADMIN_TITLE = 'cpoclub.ru'
+GRAPPELLI_ADMIN_TITLE = '<a href="/">cpoclub.ru</a>'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',

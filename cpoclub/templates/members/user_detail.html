@@ -47,6 +47,10 @@
                     <td>{{ object.first_name }}</td>
                   </tr>
                   <tr>
+                    <td>Отчество</td>
+                    <td>{{ object.profile.patronim_name }}</td>
+                  </tr>
+                  <tr>
                     <td>Фамилия</td>
                     <td>{{ object.last_name }}</td>
                   </tr>
@@ -175,8 +179,5 @@
         </div>
     </div>
 </section>
-
-{% include "sponsors.html" %}
-
 
 {% endblock %}
