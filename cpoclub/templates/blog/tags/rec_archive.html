@@ -1,5 +1,6 @@
 <div id="archives-3" class="sidebar-widget  widget_archive"><h3 class="sidebar-header regular">Архив</h3>        
     <ul>
+        <li><h4><a href='{% url "record_list" %}' class="blue-underline">Все</a></h4></li>
         {% for y, months in archive %}
             {% for m in months %}
                 <li><h4><a href='?year={{ y.year }}&month={{ m|date:"n" }}' class="blue-underline">
