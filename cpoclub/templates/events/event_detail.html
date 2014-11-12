@@ -28,8 +28,7 @@
 
                         <div class="entry-content">
 
-                        <figure><iframe style="border:none; width:682px; height:366px;" src="{% url 'event_ymap' %}?center={{ object.coordinate }}&preview={{ object.preview }}&address={{ object.address }}"></iframe></figure>
-                        
+
                         {% if object.images.count > 0 %}
                             <ul class="thumbnails">
                                 {% for image_obj in object.images.all %}
@@ -45,6 +44,10 @@
                             {{ object.content|safe }}
 
                             <p><a href="{% url 'event_list' %}" class="more-link blue-underline">Все события</a></p>
+                         <figure><iframe style="border:none; width:682px; height:366px;" src="{% url 'event_ymap' %}?center={{ object.coordinate }}&preview={{ object.preview }}&address={{ object.address }}"></iframe></figure>
+
+
+
                         </div>
                     </div>
                 </article>

@@ -32,6 +32,7 @@
         <script type='text/javascript' src='/static/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
         <script type='text/javascript' src='/static/inc/modules/revslider/rs-plugin/js/jquery.themepunch.plugins.min.js?ver=3.8.1'></script>
         <script type='text/javascript' src='/static/inc/modules/revslider/rs-plugin/js/jquery.themepunch.revolution.min.js?ver=3.8.1'></script>
+		<script type='text/javascript' src='/static/javascripts/jquery.placeholder.js'></script>
 
 
             <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
@@ -43,6 +44,14 @@
             background-attachment: scroll;
         }
         </style>
+		
+	
+		<script type="text/javascript">
+		jQuery(document).ready(function() {
+			//fix placeholder for IE
+			jQuery('input, textarea').placeholder();
+		});
+		</script>
     </head>
     <body class="home page page-id-10 page-template page-template-template-full-nopad-php no-customize-support custom-background  ">
                 <div class="wrapper">
@@ -72,7 +81,7 @@
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if blog_url in request.path %}active{% endif %}"><a href="{{blog_url}}">Блог</a></li>
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page {% if user_list in request.path %}active{% endif %}"><a href="{{user_list}}">Участники</a></li>
                                     <li  class="menu-item menu-item-type-post_type menu-item-object-page {% if events in request.path %}active{% endif %}"><a href="{{events}}">События</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page {% if library == request.path %}active{% endif %}"><a href="{{ library }}">Библиотека</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page {% if library == request.path %}active{% endif %}"><a href="{{ library }}">Исследования</a></li>
                                     {% if not user.is_authenticated %}
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page  {% if request.path == account_login %}active{% endif %}"><a href="{% url 'account_login' %}" class="sign-in">Вход</a></li>
                                     {% else %}                                

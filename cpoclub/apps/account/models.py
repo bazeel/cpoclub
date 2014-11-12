@@ -26,6 +26,7 @@ class UserProfile(models.Model):
     post = models.CharField(_('post'), max_length=255, blank=True)
     preview = models.TextField(_('preview'), blank=True)
     biography = tinymce_models.HTMLField(_('biography'), blank=True)
+    sort = models.PositiveIntegerField(default=100, blank=True, null=True)
 
     class Meta:
         verbose_name = _('user profile')

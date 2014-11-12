@@ -55,18 +55,17 @@
                     <td>{{ object.last_name }}</td>
                   </tr>
                   <tr>
-                    <td>Имя пользователя</td>
-                    <td>{{ object.username }}</td>
-                  </tr>
-                  <tr>
                     <td>Email</td>
                     <td>{{ object.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>Компания</td>
+                    <td>{{ object.profile.organization|safe }}</td>
                   </tr>
                   <tr>
                     <td>Должность</td>
                     <td>{{ object.profile.post }}</td>
                   </tr>
-
                 </tbody>
               </table>
             </div>

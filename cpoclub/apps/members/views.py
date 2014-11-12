@@ -12,8 +12,8 @@ from blog.models import Record
 
 class MembersList(ListView):
     model = User
-    paginate_by = 9
-    queryset = User.objects.filter(is_active=True)
+    #paginate_by = 9
+    queryset = User.objects.filter(is_active=True).order_by('profile__sort', 'last_name')
     template_name='members/user_list.html'
 
 
